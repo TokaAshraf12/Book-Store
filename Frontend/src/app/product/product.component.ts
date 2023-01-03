@@ -9,6 +9,7 @@ import { Cart } from '../dto/data';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent {
+  
   isOwner: boolean = false;
   product: any;
   noPriceEditing: boolean = true;
@@ -120,4 +121,5 @@ export class ProductComponent {
       console.log("Done Editing Product!!");
     });
   }
+  
 }

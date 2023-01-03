@@ -11,6 +11,10 @@ import { ProductAllInfo } from '../dto/data';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  Page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
   details: any;
   productToCart: any;
   @ViewChild('noProductFound') noProductEle: ElementRef | undefined;
@@ -39,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.page = e;
     console.log(this.page);
   }
-
+  
   getCategory(category: string) {
     this.setting()
     this.searchBy = `Category: ${category}`;
@@ -204,5 +208,15 @@ export class HomeComponent implements OnInit {
   logOut() {
     this.cartService.clearCart();
     this.authService.logout();
+  }
+
+  HandlePageChange(event: number): void {
+    this.Page = event;
+    
+  }
+  handlePageSizeChange(event:any): void {
+    this.pageSize = event.target.value;
+    this.Page = 1;
+    
   }
 }

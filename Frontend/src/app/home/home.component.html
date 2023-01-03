@@ -85,6 +85,20 @@
           <p *ngIf="!ownedProducts && !purchasedProducts">No Products In Our App, Sorry :)</p>
         </div>
       </span>
+      <br>
+      <div class="text-center">
+      Products per Page:
+      <select (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" >
+          {{ size }}
+        </option>
+      </select>
+      </div>
+      <br>
+      <div class="text-center">
+        <pagination-controls (pageChange)="HandlePageChange($event)" ></pagination-controls>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  
 </body>

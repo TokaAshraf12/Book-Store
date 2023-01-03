@@ -5,7 +5,7 @@ body {
 .all-page {
   min-width: 100vh;
   min-height: 100vh;
-  background: #f69dce;
+  background: white;
 }
 
 .container {
@@ -29,7 +29,7 @@ img {
 }
 
 .card {
-  
+  background-color: #f8e9bd;
   border: 1px solid lightgrey;
   padding: 2em;
   line-height: 1.5em;
@@ -154,7 +154,7 @@ img {
 
 .add-to-cart,
 .like {
-  background-color: #f27dbe;
+  background-color: #9b6a01c5;
   padding: 0.6em 0.8em;
   border: none;
   font-weight: bold;
@@ -167,7 +167,7 @@ img {
 
 .add-to-cart:hover,
 .like:hover {
-  background-color: #e03997;
+  background-color: rgba(221, 162, 51, 0.822);
 }
 
 .not-available {
@@ -217,7 +217,6 @@ img {
 }
 
 .color {
-  background-color: #f9f3f6;
   margin-right: 8px;
   font-size: 22px;
   padding: 1.5px;

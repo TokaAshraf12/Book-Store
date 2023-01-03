@@ -16,10 +16,18 @@ export class ProductComponent {
   noCategoryEdit: boolean = true;
   noTitleEdit: boolean = true;
   noDescriptionEditing: boolean = true;
+  noPublicationYearEdit:  boolean = true;
+  noPublisherEdit:  boolean = true;
+  noAuthorEdit:  boolean = true;
+  noIsbnEdit: boolean = true;
 
   toCart: Cart = {
     productId: 0,
     title: '',
+    isbn: 0,
+    author: '',
+    publisher: '',
+    year: '',
     price: 0,
     category: '',
     inStock: 0,
@@ -80,6 +88,46 @@ export class ProductComponent {
     )).value;
   }
 
+  editISBN() {
+    this.noIsbnEdit = false;
+  }
+  exitEditIsbn() {
+    this.noIsbnEdit = true;
+    this.product.isbn = (<HTMLInputElement>(
+      document.getElementById('isbn_after_edit')
+    )).value;
+  }
+
+  editAuthor() {
+    this.noAuthorEdit = false;
+  }
+  exitEditAuthor() {
+    this.noAuthorEdit = true;
+    this.product.author = (<HTMLInputElement>(
+      document.getElementById('author_after_edit')
+    )).value;
+  }
+
+  editPublisher() {
+    this.noPublisherEdit = false;
+  }
+  exitEditPublisher() {
+    this.noPublisherEdit = true;
+    this.product.publisher = (<HTMLInputElement>(
+      document.getElementById('publisher_after_edit')
+    )).value;
+  }
+
+  editPublicationYear() {
+    this.noPublicationYearEdit = false;
+  }
+  exitEditPublicationYear() {
+    this.noPublicationYearEdit = true;
+    this.product.year = (<HTMLInputElement>(
+      document.getElementById('year_after_edit')
+    )).value;
+  }
+  
   editDescription() {
     this.noDescriptionEditing = false;
   }
@@ -112,6 +160,10 @@ export class ProductComponent {
     this.productService.editProduct({
       productId: this.product.productId,
       title: this.product.title,
+      isbn: this.product.isbn,
+      author: this.product.author,
+      publisher: this.product.publisher,
+      year: this.product.year, 
       price: this.product.price,
       category: this.product.category,
       inStock: this.product.inStock,

@@ -20,7 +20,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ReportService {
 
-    public String exportReport(String path) throws FileNotFoundException, JRException {
+    public String exportReportTop5Customers(String fileFormat ) throws FileNotFoundException, JRException {
         List<RegisterRequest> employees = new ArrayList<>();
         //load file and compile it
         File file = ResourceUtils.getFile("classpath:templates/Top_5_Customers.jrxml");
@@ -29,7 +29,52 @@ public class ReportService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Java Techie");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        JasperExportManager.exportReportToHtmlFile(jasperPrint, path);
+        String path="C:\\Users\\origenal\\Downloads\\Report";
+        if(fileFormat.equalsIgnoreCase("html")){
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
+        }
+        if(fileFormat.equalsIgnoreCase("pdf")){
+            JasperExportManager.exportReportToPdfFile(jasperPrint,path+".pdf");
+        }
         return "Report Generated In Path: " + path;
     }
+
+    public String exportReportTop10Selling(String fileFormat) throws FileNotFoundException, JRException {
+        List<RegisterRequest> employees = new ArrayList<>();
+        //load file and compile it
+        File file = ResourceUtils.getFile("classpath:templates/Top_10_Selling.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Book Store");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+
+        String path="C:\\Users\\origenal\\Downloads\\Report";
+        if(fileFormat.equalsIgnoreCase("html")){
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
+        }
+        if(fileFormat.equalsIgnoreCase("pdf")){
+            JasperExportManager.exportReportToPdfFile(jasperPrint,path+".pdf");
+        }
+        return "Report Generated In Path: " + path;
+    }
+
+   public String exportReportTotalSales(String fileFormat) throws FileNotFoundException, JRException {
+       List<RegisterRequest> employees = new ArrayList<>();
+       //load file and compile it
+       File file = ResourceUtils.getFile("classpath:templates/Total_Sales.jrxml");
+       JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+       JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
+       Map<String, Object> parameters = new HashMap<>();
+       parameters.put("createdBy", "Book Store");
+       JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+       String path="C:\\Users\\origenal\\Downloads\\Report";
+       if(fileFormat.equalsIgnoreCase("html")){
+           JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
+       }
+       if(fileFormat.equalsIgnoreCase("pdf")){
+           JasperExportManager.exportReportToPdfFile(jasperPrint,path+".pdf");
+       }
+       return "Report Generated In Path: " + path;
+   }
 }

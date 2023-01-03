@@ -245,3 +245,15 @@ li a:hover {
 #to-cart {
   display: none;
 }
+
+.l {
+  background-color: #f5f0f3;
+  display: inline-block;
+  padding: 10px 10px;
+  margin: 10px;
+  font-size: 20px;
+  color: rgb(3, 3, 3);
+  width: 130px;
+  text-align: center;
+}
+

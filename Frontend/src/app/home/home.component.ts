@@ -5,6 +5,7 @@ import { CartService } from '../cart/cart.service';
 import { SearchService } from '../services/search/search.service';
 import { UserService } from '../services/user/user.service';
 import { ProductAllInfo } from '../dto/data';
+import { ReportService } from '../services/Report/report.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,13 +27,43 @@ export class HomeComponent implements OnInit {
     private productService: ProductService,
     private searchService: SearchService,
     private cartService: CartService,
-    private userService: UserService
+    private userService: UserService,
+    private reportService :ReportService
   ) {}
 
   ngOnInit(): void {
     this.loggin = this.authService.isLoggedIn();
     this.showProducts();
     if (this.loggin) this.isManagerSubscribe();
+  }
+  
+
+  handleReports(){
+    
+  }
+  fileType:any;
+  getFileType(event: any) {
+    this.fileType = event.target.value;
+    console.log(this.fileType);
+    console.log(this.reportChoice);
+    this.reportService.generateReport(this.fileType);
+  }
+  
+  appear10:boolean=false;
+  appear5:boolean=false;
+  appearTotal:boolean=false;
+  reportChoice:any;
+  chooseTypeTop10(){
+    this.reportChoice="top10";
+    this.appear10=true;
+  }
+  chooseTypeTop5(){
+    this.reportChoice="top5";
+    this.appear5=true;
+  }
+  chooseTypeTotal(){
+    this.reportChoice="total";
+    this.appearTotal=true;
   }
 
   handlePageChange(e: any) {

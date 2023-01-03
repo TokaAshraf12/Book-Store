@@ -1,11 +1,33 @@
 <body>
   <mat-sidenav-container class="sidebar-container">
     <mat-sidenav #sidenav class="side-bar">
-      <h3 class="head">Trending</h3>
-      <p>Best Sellers</p>
-      <p>New Releases</p>
-      <p>Top Rated</p>
-      <hr>
+      <h3 *ngIf="isManager" class="head">Trending</h3>
+      <p  *ngIf="isManager" (click)="chooseTypeTop10()" >Top 10 Selling Books</p>
+      <form id="type"  *ngIf="appear10">
+        <input type="radio" id="html" value="html" name="html" (change)="getFileType($event)" >
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="pdf" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+       
+    </form>
+      <p   *ngIf="isManager" (click)="chooseTypeTop5()">Top 5 Customers</p>
+      <form id="type"  *ngIf="appear5">
+        <input type="radio" id="html" value="html" name="html" (change)="getFileType($event)">
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="pdf" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+        
+    </form>
+      <p   *ngIf="isManager"  (click)="chooseTypeTotal()">Total Sales </p>
+      <form id="type"  *ngIf="appearTotal">
+        <input type="radio" id="html" value="html" name="html" (change)="getFileType($event)">
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="pdf" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+       
+    </form>
+
+      <hr  *ngIf="isManager">
       <h3 class="head">Categories</h3>
       <p (click)="getCategory('Mobiles & Tablets')">Mobiles & Tablets</p>
       <p (click)="getCategory('Computers')">Computers</p>

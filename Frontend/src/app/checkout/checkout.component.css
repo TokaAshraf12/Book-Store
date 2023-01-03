@@ -42,7 +42,7 @@ body {
 }
 
 .container {
-  background-color: #fad8ec;
+  background-color: #f8e9bd;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
@@ -68,7 +68,7 @@ label {
 }
 
 .btn {
-  background-color: #f27dbe;
+  background-color:#9b6a01c5;
   color: white;
   padding: 10px 5px 10px 5px;
   margin-left: 79%;
@@ -81,11 +81,11 @@ label {
 }
 
 .btn:hover {
-  background-color: #e03997;
+  background-color: rgba(221, 162, 51, 0.822);
 }
 
 a {
-  color: rgba(214, 15, 171, 0.8);
+  color: #9b6a01c5;
 }
 
 hr {
@@ -105,7 +105,7 @@ h1 {
 }
 
 .btn-after {
-  background-color: #f27dbe;
+  background-color: #9b6a01c5;
   color: white;
   padding: 14px;
   border: none;
@@ -119,5 +119,5 @@ h1 {
 }
 
 .btn-after:hover {
-  background-color: #e03997;
+  background-color:rgba(221, 162, 51, 0.822);
 }

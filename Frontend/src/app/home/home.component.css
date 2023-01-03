@@ -16,8 +16,8 @@
   width: 20%;
   padding: 10px;
   font-size: 1.1em;
-  border: 2px solid black;
-  background-color: white;
+  border: 2px solid #9b6a01c5;
+  background-color: #ede7d6;
 }
 
 .side-bar p {
@@ -28,7 +28,7 @@
 }
 
 .side-bar p:hover {
-  background-color: rgb(199, 196, 196);
+  background-color: #9b6a01c5;
   border-radius: 3px;
 }
 
@@ -36,7 +36,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #ee8cc2;
+  background-color: #9b6a01c5;
   display: flex;
 }
 
@@ -53,7 +53,7 @@ li a {
 }
 
 li a:hover {
-  background-color: rgb(150, 74, 127);
+  background-color: rgba(221, 162, 51, 0.822);
 }
 
 .logo {
@@ -76,8 +76,8 @@ li a:hover {
 }
 
 .labele {
-  color: rgb(150, 74, 127);
-  font-size: 3em;
+  color:#f8e9bd;
+  font-size: 2em;
   font-style: oblique;
 }
 
@@ -138,7 +138,7 @@ li a:hover {
 
 .dropdown-content a {
   display: inline-block;
-  color: white;
+  color: #ede7d6;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -151,7 +151,7 @@ li a:hover {
 
 .dropdown-content {
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #ede7d6;
   box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
   font-size: 12px;
   z-index: 1;
@@ -171,7 +171,7 @@ li a:hover {
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #9b6a01c5;
 }
 
 
@@ -189,7 +189,7 @@ li a:hover {
 }
 
 .btn {
-  background-color: #f27dbe;
+  background-color: #9b6a01c5;
   cursor: pointer;
   color: #fff;
   font-size: 21px;
@@ -201,7 +201,7 @@ li a:hover {
 
 .btn:hover {
   color: #fff;
-  background-color: #e03997;
+  background-color: rgba(221, 162, 51, 0.822);
 }
 
 .product {

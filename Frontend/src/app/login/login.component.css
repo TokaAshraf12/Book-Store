@@ -1,6 +1,7 @@
 .main {
   max-width: 100%;
   padding-block: 70px 70px;
+  background-color: #f8e9bd;
 }
 
 body {
@@ -8,30 +9,39 @@ body {
 
   line-height: 1.2;
   color: #222;
-  background-color: white; /* #fce3e3; */
+   /* #fce3e3; */
   font-weight: 400;
   height: auto;
   max-width: 100%;
 }
 .container {
   width: 900px;
-  background-color: rgb(255, 253, 253);
+ background-color: white;
   margin: 0 auto;
   box-shadow: 0 0 15px 5px #ccc;
 }
 
 .signin-content {
+  
   display: flex;
   padding-top: 67px;
   padding-bottom: 87px;
+  
 }
 
 .signin-image {
-  margin-left: auto;
+ /* margin-left: auto;
   margin-right: 90px;
   width: 50%;
   overflow: hidden;
   height: 50%;
+  background-size: 50% 70%;*/
+  margin-left: auto;
+  margin-right: 90px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 50% 85%;
+  background-position: right;
 }
 
 img {
@@ -63,6 +73,7 @@ figure {
 }
 
 .form-title {
+  color: #9b6a01c5;
   margin-bottom: 33px;
   text-align: center;
 }
@@ -102,7 +113,7 @@ h1 {
 .form-submit {
   display: inline-block;
   background: #ee8cc2;
-  color: #fff;
+  color: #9b6a01c5;
   border-bottom: none;
   width: auto;
   padding: 15px 39px;

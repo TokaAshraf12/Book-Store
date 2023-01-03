@@ -1,6 +1,6 @@
 .form-submit {
   display: inline-block;
-  background-color: #f27dbe;
+  background-color: #9b6a01c5;
   color: #fff;
   width: auto;
   padding: 10px 20px;
@@ -11,7 +11,7 @@
 }
 
 .form-submit:hover {
-  background-color: #e03997;
+  background-color:  #9b6a01c5;
 }
 
 /* ==========================================================================
@@ -200,7 +200,7 @@ button {
      ========================================================================== */
 .page-wrapper {
   min-height: 100vh;
-  background: #f69dce;
+  background: #9b6a01c5;
 }
 
 body {
@@ -532,7 +532,7 @@ textarea {
   font-size: 40px;
   font-weight: 700;
   text-align: left;
-  color: #fff;
+  color: #f8e9bd;
   margin-bottom: 24px;
 }
 
@@ -610,7 +610,7 @@ input::file-selector-button {
   color: white;
   padding: 0.7em;
   border-radius: 5px;
-  background-color: #ee8cc2;
+  background-color:  #9b6a01c5;
   margin-left: 10px;
 }
 

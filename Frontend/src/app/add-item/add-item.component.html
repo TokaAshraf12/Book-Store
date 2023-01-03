@@ -2,14 +2,37 @@
     <div class="wrapper wrapper--w900">
         <div class="card card-6">
             <div class="card-heading">
-                <h2 class="title">Add Product</h2>
+                <h2 class="title">Add Book</h2>
             </div>
             <div class="card-body">
                 <form ngNativeValidate>
                     <div class="form-row">
-                        <div class="name">Title of Product</div>
+                        <div class="name">Book's ISBN</div>
+                        <div class="value">
+                            <input class="input--style-6" id="id" type="text" name="full_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Title of book</div>
                         <div class="value">
                             <input class="input--style-6" id="title" type="text" name="full_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Author(s)</div>
+                        <div class="value">
+                            <input class="input--style-6" id="author" type="text" name="full_name" required>
+                            <div class="label--desc">if there are more than 1 author put & and add another like "john & albert"
+                            </div>
+                        </div >
+                        
+                    </div>
+                    
+                  
+                    <div class="form-row">
+                        <div class="name">Publication Year</div>
+                        <div class="value">
+                            <input class="input--style-6" id="Year" type="date" name="full_name" max="2022-12-31" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -17,12 +40,12 @@
                         <div class="value">
                             <div class="input-group">
                                 <input class="input--style-6" id="price" type="number" name="price" min="0"
-                                    placeholder="    300 $" required>
+                                    placeholder="  300 $" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="name">Number of items</div>
+                        <div class="name">Number of book in the store</div>
                         <div class="value">
                             <div class="input-group">
                                 <input class="input--style-6" id="quantity" type="number" name="number" min="1"
@@ -36,16 +59,11 @@
                             <div class="input-group">
                                 <select class="input--style-6" type="text" id="c" name="Catogery"
                                     placeholder="Choose Catogery of the Product" required>
-                                    <option>Mobiles & Tablets</option>
-                                    <option>Computers</option>
-                                    <option>Electronics</option>
-                                    <option>Fashion</option>
-                                    <option>Health & Beauty</option>
-                                    <option>Supermarket</option>
-                                    <option>Kitchen</option>
-                                    <option>Toys & Games</option>
-                                    <option>Sports & Fitness</option>
-                                    <option>Books</option>
+                                    <option>Science</option>
+                                    <option>Art</option>
+                                    <option>Religion</option>
+                                    <option>History</option>
+                                    <option>Geography</option>
                                 </select>
                             </div>
                         </div>

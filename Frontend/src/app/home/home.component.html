@@ -1,22 +1,17 @@
 <body>
   <mat-sidenav-container class="sidebar-container">
     <mat-sidenav #sidenav class="side-bar">
-      <h3 class="head">Trending</h3>
+      <h3 class="head">Reports</h3>
       <p>Best Sellers</p>
       <p>New Releases</p>
       <p>Top Rated</p>
       <hr>
       <h3 class="head">Categories</h3>
-      <p (click)="getCategory('Mobiles & Tablets')">Mobiles & Tablets</p>
-      <p (click)="getCategory('Computers')">Computers</p>
-      <p (click)="getCategory('Electronics')">Electronics</p>
-      <p (click)="getCategory('Fashion')">Fashion</p>
-      <p (click)="getCategory('Health & Beauty')">Health & Beauty</p>
-      <p (click)="getCategory('Supermarket')">Supermarket</p>
-      <p (click)="getCategory('Kitchen')">Kitchen</p>
-      <p (click)="getCategory('Toys & Games')">Toys & Games</p>
-      <p (click)="getCategory('Sports & Fitness')">Sports & Fitness</p>
-      <p (click)="getCategory('Books')">Books</p>
+      <p (click)="getCategory('Science')">Science</p>
+      <p (click)="getCategory('Art')">Art</p>
+      <p (click)="getCategory('Religion')">Religion</p>
+      <p (click)="getCategory('History')">History</p>
+      <p (click)="getCategory('Geography')">Geography</p>
     </mat-sidenav>
     <mat-sidenav-content class="side-bar-content">
       <ul class="nav-bar">
@@ -32,7 +27,7 @@
             <img class="img-logo" src="../../assets/icon_site.png" alt="E-Shop">
           </div>
           <div class="text-logo">
-            <span class="labele">E</span>
+            <span class="labele">Book</span>
             <span class="label">Shop</span>
           </div>
         </li>
@@ -117,4 +112,6 @@
     </div>
   
   </div>
+
 </body>
+

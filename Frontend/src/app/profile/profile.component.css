@@ -9,7 +9,7 @@ img {
   height: 150px;
   padding-left: 14%;
   background-size: 200px;
-  border-radius: 50%;
+
   padding-bottom: 1%;
 }
 
@@ -27,11 +27,11 @@ img {
   color: black;
   background: white;
   width: 40%;
-  background-color: #fdeded;
+  background-color: #f8e9bd;
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
-  box-shadow: 1px 1px 6px 1px rgba(75, 26, 60, 0.8);
+  box-shadow: 1px 1px 6px 1px rgba(173, 156, 103, 0.8);
 }
 
 button,
@@ -42,7 +42,7 @@ a {
 
 .style-button {
   display: inline-block;
-  background: #f59dcd;
+  background: #9b6a01c5;
   color: #fff;
   border-bottom: none;
   width: auto;
@@ -55,7 +55,7 @@ a {
 }
 
 .style-button:hover {
-  background: #dd75ddd3;
+  background: rgba(221, 162, 51, 0.822);
 }
 
 #box-edit {

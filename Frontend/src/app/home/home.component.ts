@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   details: any;
   productToCart: any;
   @ViewChild('noProductFound') noProductEle: ElementRef | undefined;
+  @ViewChild('promoteduser') promoteduserlabel: any;
   loggin!: boolean;
   isManager!: Boolean;
   searchBy!: string;
@@ -33,7 +34,44 @@ export class HomeComponent implements OnInit {
     this.loggin = this.authService.isLoggedIn();
     this.showProducts();
     if (this.loggin) this.isManagerSubscribe();
+  } 
+  getpromoteduseremail(useremail: string) {
+    let response:boolean =true;
+      var modal = document.getElementById("myModal")!;
+      if(useremail!=null){
+        console.log(useremail);
+        //send useremail to backend
+        //get response true or false 
+  
+        if(response){
+          alert(useremail +" is promoted successfully") 
+  
+        }else{
+          alert(" Make sure you entered a valid useremail")
+  
+        }
+    
+    
+      }
+      this.promoteduserlabel.nativeElement.value = "";
+       modal.style.display = "none";
   }
+  promoteuserwindow(){
+   var modal = document.getElementById("myModal")!;
+   modal.style.display = "block";
+  
+    window.onclick = function(event) {
+    if (event.target == modal) { 
+      modal.style.display = "none";
+    }
+    }  
+  }
+  cancelbuttonpromotion(){
+    var modal = document.getElementById("myModal")!;
+    this.promoteduserlabel.nativeElement.value = "";
+    modal.style.display = "none";
+  }
+  
 
   handlePageChange(e: any) {
     this.page = e;

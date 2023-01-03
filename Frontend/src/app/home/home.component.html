@@ -54,6 +54,7 @@
             <a (click)="getCustomerPurchasedProducts()">Purchased Products</a>
             <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Products</a>
             <a *ngIf="isManager" href="user/add-item">Add Product</a>
+            <a *ngIf="isManager" #promotion (click)="promoteuserwindow()">Promote User</a>
             <a href="#" (click)="logOut()">Log Out</a>
           </div>
         </li>
@@ -87,4 +88,20 @@
       </span>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="cancelbuttonpromotion()">&times;</span> 
+
+      
+      <label for="promoteduser" style="color:#9b6a01c5 ;  text-shadow: 0 0 3px #faf7f7, 0 0 5px #d5caca; 
+      font-size: x-large; font-weight: bold;">Please enter  user's email you want to promote :</label> <br>
+      <input  class="promotinput" type="text" #promoteduser  name="promoteduser" placeholder="example@gmail.com"> 
+      <br><br><br>
+      <button (click)="getpromoteduseremail(promoteduser.value)" class="btn promotebtn" >ok</button>
+
+    </div>
+  
+  </div>
 </body>

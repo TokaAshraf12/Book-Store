@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   Page = 1;
   count = 0;
   pageSize = 3;
+  Category!:string;
   pageSizes = [3, 6, 9];
   details: any;
   productToCart: any;
@@ -85,6 +86,8 @@ export class HomeComponent implements OnInit {
   getCategory(category: string) {
     this.setting()
     this.searchBy = `Category: ${category}`;
+    this.Category=category;
+    console.log(this.Page,this.pageSize);
     // Adjust it on the services file -- Add the specific route on the server side
     this.productService.getProductsByCategory(category).subscribe((res) => {
       const productsDiv = document.getElementById('products');
@@ -253,7 +256,7 @@ export class HomeComponent implements OnInit {
     
   }
   handlePageSizeChange(event:any): void {
-    this.pageSize = event.target.value;
+    this.pageSize = (Number) (event.target.value);
     this.Page = 1;
     
   }

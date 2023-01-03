@@ -275,6 +275,10 @@ li a:hover {
   position: relative;
   left: 80%;
 }
+.promotebtn:hover {
+  color: #fff;
+  background-color: #111111;
+}
 
 /* The Close Button */
 .close {

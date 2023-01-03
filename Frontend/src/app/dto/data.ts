@@ -48,6 +48,10 @@ export interface ProductRequest {
 export interface ProductResponse {
   productId: number;
   title: string;
+  isbn: number;
+  author: string;
+  publisher: string;
+  year: string;
   price: number;
   category: string;
   inStock: number;
@@ -60,6 +64,10 @@ export interface ProductResponse {
 export interface ProductAllInfo {
   productId: number;
   title: string;
+  isbn: number;
+  author: string;
+  publisher: string;
+  year: string;
   price: number;
   category: string;
   inStock: number;
@@ -74,6 +82,10 @@ export interface ProductAllInfo {
 export interface ProductSpecificDetails {
   productId: number;
   title: string;
+  isbn: number;
+  author: string;
+  publisher: string;
+  year: string;
   description: string;
   price: number;
   inStock: number;
@@ -83,6 +95,10 @@ export interface ProductSpecificDetails {
 export interface Cart {
   productId: number;
   title: string;
+  isbn: number;
+  author: string;
+  publisher: string;
+  year: string;
   price: number;
   category: string;
   inStock: number;
@@ -107,6 +123,10 @@ export interface CheckoutProductInfo {
 export interface ProductEdit {
   productId: number;
   title: string;
+  isbn: number;
+  author: string;
+  publisher: string;
+  year: string;
   price: number;
   category: string;
   inStock: number;

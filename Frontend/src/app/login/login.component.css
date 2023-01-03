@@ -1,11 +1,11 @@
 .main {
   max-width: 100%;
-  padding-block: 70px 70px;
+  padding-block: 70px 220px;
   background-color: #f8e9bd;
 }
 
 body {
-  background-size: cover;
+ background-size: cover;
 
   line-height: 1.2;
   color: #222;
@@ -112,8 +112,8 @@ h1 {
 
 .form-submit {
   display: inline-block;
-  background: #ee8cc2;
-  color: #9b6a01c5;
+  background: #9b6a01c5;
+  color: wheat;
   border-bottom: none;
   width: auto;
   padding: 15px 39px;
@@ -123,7 +123,7 @@ h1 {
 }
 
 .form-submit:hover {
-  background: rgb(150, 74, 127);
+  background: rgba(221, 162, 51, 0.822);
 }
 
 input {

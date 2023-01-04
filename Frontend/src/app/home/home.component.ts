@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
     this.setting()
     this.searchBy = `Category: ${category}`;
     this.Category=category;
-    console.log(this.Page,this.pageSize);
+    
     // Adjust it on the services file -- Add the specific route on the server side
     this.productService.getProductsByCategory(category).subscribe((res) => {
       const productsDiv = document.getElementById('products');
@@ -149,6 +149,7 @@ export class HomeComponent implements OnInit {
   private showProducts() {
     this.setting()
     this.setNoProductToNull();
+    console.log(this.Page,this.pageSize);
     this.productService.getAllProducts().subscribe((res) => {
       const productsDiv = document.getElementById('products');
       if (productsDiv) productsDiv.innerHTML = '';
@@ -253,11 +254,11 @@ export class HomeComponent implements OnInit {
 
   HandlePageChange(event: number): void {
     this.Page = event;
-    
+    this.showProducts();
   }
   handlePageSizeChange(event:any): void {
     this.pageSize = (Number) (event.target.value);
     this.Page = 1;
-    
+    this.showProducts();
   }
 }

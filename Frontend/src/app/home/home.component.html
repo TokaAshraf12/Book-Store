@@ -49,6 +49,7 @@
             <a (click)="getCustomerPurchasedProducts()">Purchased Products</a>
             <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Products</a>
             <a *ngIf="isManager" href="user/add-item">Add Product</a>
+            <a *ngIf="isManager" href="user/add-publisher">Add Publisher</a>
             <a *ngIf="isManager" #promotion (click)="promoteuserwindow()">Promote User</a>
             <a href="#" (click)="logOut()">Log Out</a>
           </div>

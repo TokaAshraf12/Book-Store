@@ -132,3 +132,13 @@ export interface ProductEdit {
   inStock: number;
   description: string;
 }
+
+
+// Publisher All Info
+export interface PublisherInfo {
+  publisherId: number;
+  publisherName: string;
+  address: string;
+  phoneNumber: number;
+  isOwner: boolean;
+}

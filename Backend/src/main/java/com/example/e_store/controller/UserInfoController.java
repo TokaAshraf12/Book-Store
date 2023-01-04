@@ -3,14 +3,13 @@ package com.example.e_store.controller;
 import com.example.e_store.dto.ProductResponse;
 import com.example.e_store.dto.ProductSpecificDetails;
 import com.example.e_store.dto.ProfileInfoResponse;
+import com.example.e_store.dto.UserEdit;
 import com.example.e_store.service.UserInfoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,5 +46,13 @@ public class UserInfoController {
     public ResponseEntity<List<ProductSpecificDetails>> getUserPurchasedProducts(@PathVariable String email) {
         log.info("Getting User Purchased Products");
         return ResponseEntity.ok().body(userInfoService.getUserPurchasedProducts(email));
+    }
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/edit"
+    )
+    public ResponseEntity<?> editUser(@RequestBody UserEdit userEdit) {
+        userInfoService.editUserInfo(userEdit);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

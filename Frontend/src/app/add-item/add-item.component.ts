@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductRequest } from '../dto/data';
+import { BookRequest} from '../dto/data';
 import { AuthService } from '../services/auth/auth.service';
 import { ProductService } from '../services/product/product.service';
 
@@ -50,7 +50,7 @@ export class AddItemComponent {
     const category = (<HTMLInputElement>document.getElementById('c')).value;
     const desc = (<HTMLInputElement>document.getElementById('desc')).value;
 
-    const product: ProductRequest = {
+    const product: BookRequest = {
       title: title,
       price: price,
       category: category,

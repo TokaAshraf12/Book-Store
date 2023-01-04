@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import {
   ProductAllInfo,
   ProductEdit,
-  ProductResponse,
+  BookResponse,
   ProductSpecificDetails,
+  BookRequest,
 } from 'src/app/dto/data';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -31,8 +32,8 @@ export class ProductService {
     );
   }
 
-  public getProduct(id: number): Observable<ProductResponse> {
-    return this.http.get<ProductResponse>(
+  public getProduct(id: number): Observable<BookRequest> {
+    return this.http.get<BookResponse>(
       `${environment.apiBaseUrl}/api/product/${id}`
     );
   }

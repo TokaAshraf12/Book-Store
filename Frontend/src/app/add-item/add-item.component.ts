@@ -50,7 +50,7 @@ export class AddItemComponent {
     const threshold = (<HTMLInputElement>document.getElementById("threshold"))
       .value;
     const publicationYear = (<HTMLInputElement>document.getElementById("Year"))
-      .value.substring(5);
+      .value;
     const authors = (<HTMLInputElement>(
       document.getElementById("author")
     )).value.split("&");

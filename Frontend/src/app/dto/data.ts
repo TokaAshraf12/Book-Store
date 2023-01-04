@@ -135,10 +135,9 @@ export interface ProductEdit {
 
 
 // Publisher All Info
-export interface PublisherInfo {
-  publisherId: number;
+export interface PublisherRequest {
   publisherName: string;
   address: string;
-  phoneNumber: number;
-  isOwner: boolean;
+  phoneNumber: string;
+  owner: string;
 }

@@ -1,0 +1,22 @@
+<body>
+    <div id="data-table">
+        <table id="order">
+            <tr>
+                <th>Order Id</th>
+                <th>ISBN</th>
+                <th>Book Title</th>
+                <th>Quantity</th>
+                <th>Confirmation</th>
+            </tr>
+            <tr class="product" *ngFor="let item of ordersList; let indexOfelement=index;">
+                <td><span>{{item.orderId}}</span></td>
+                <td><span>{{item.ISBN}}</span></td>
+                <td><span>{{item.bookTitle}}</span></td>
+                <td><span>{{item.Quantity}}</span></td>
+                <td><span><button class="btn" (click)="confirm($event, indexOfelement)">Confirm</button></span></td>
+            </tr>
+        </table>    
+    </div>
+    </body>
+    
+    

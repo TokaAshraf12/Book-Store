@@ -28,6 +28,7 @@ public class CheckoutService {
     private final CheckoutRepository checkoutRepository;
 
     public void saveOrder(CheckoutRequest checkoutRequest) {
+        log.info("Hello Checking Out {}", checkoutRequest);
         Optional<User> user = userRepository.findByEmail(checkoutRequest.getCustomer());
         if (!user.isPresent()) return;
         for (CheckoutBookInfo productInfo : checkoutRequest.getBooks()) {

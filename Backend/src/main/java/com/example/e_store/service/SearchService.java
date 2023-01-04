@@ -27,6 +27,7 @@ public class SearchService {
                     contains(book.getNoOfCopies().toString(), searchBy)) {
                 log.info("HOHO: Marry Christmas ... Product #{} is Matching ...", book.getISBN());
                 BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                        bookId(book.getBookId()).
                         ISBN(book.getISBN()).
                         title(book.getTitle()).
                         description(book.getDescription()).

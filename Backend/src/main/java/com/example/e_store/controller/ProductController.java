@@ -58,7 +58,7 @@ public class ProductController {
             value = "/edit"
     )
     public ResponseEntity<?> editProduct(@RequestBody BookEdit productEdit) {
-        log.info("Authors: {}", productEdit.getAuthors().toArray());
+        // log.info("Authors: {}", productEdit.getAuthors().toArray());
         productService.editProduct(productEdit);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

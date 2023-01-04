@@ -26,6 +26,7 @@ public class SortService {
         for (Book book : books) {
             log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", book.getISBN());
             BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                    bookId(book.getBookId()).
                     ISBN(book.getISBN()).
                     title(book.getTitle()).
                     description(book.getDescription()).
@@ -46,6 +47,7 @@ public class SortService {
         for (Book book : books) {
             log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", book.getISBN());
             BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                    bookId(book.getBookId()).
                     ISBN(book.getISBN()).
                     title(book.getTitle()).
                     description(book.getDescription()).

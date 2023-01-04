@@ -17,6 +17,7 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bookId")
     private Long bookId;
     @Column(unique = true, nullable = false, length = 50)
     private String ISBN;

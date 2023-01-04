@@ -51,9 +51,13 @@ export class CartService {
   getCheckoutProducts(): Array<CheckoutProductInfo> {
     let res: Array<CheckoutProductInfo> = [];
     this.values = JSON.parse(this.getCart());
+    console.log(`
+    What In Cart:
+    ${this.values}
+    `)
     this.values.forEach((ele) => {
       res.push({
-        productId: ele.bookId,
+        bookId: ele.bookId,
         quantity: ele.quantity,
       });
     });

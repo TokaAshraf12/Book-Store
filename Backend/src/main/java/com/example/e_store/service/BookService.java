@@ -51,10 +51,16 @@ public class BookService {
             book.setPublisher(publisher.get());
             // Authors
             for (String author : bookRequest.getAuthors()) {
-                Author au = new Author();
-                au.setName(author);
-                authorRepository.save(au);
-                book.getAuthors().add(au);
+                Optional<Author> au = authorRepository.findByName(author);
+                if (!au.isPresent()) {
+                    Author temp = new Author();
+                    temp.setName(author);
+                    authorRepository.save(temp);
+                    book.getAuthors().add(temp);
+                    continue;
+                }
+                book.getAuthors().add(au.get());
+                log.info("Author In DB Already: {}", author);
             }
 
             bookRepository.save(book);
@@ -106,6 +112,7 @@ public class BookService {
 
     public void editProduct(BookEdit productEdit) {
         Book book = bookRepository.getById(productEdit.getBookId());
+        log.info("Hello Here");
         // Authors
         Set<Author> authorList = new HashSet<>();
         for (String author : productEdit.getAuthors()) {

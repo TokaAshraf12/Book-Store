@@ -24,6 +24,7 @@ public class FilterService {
             if (book.getCategory().equalsIgnoreCase(category)) {
                 log.info("HOHO: Marry Christmas ... Product #{} is Matching for Category Filtering ...", book.getISBN());
                 BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                        bookId(book.getBookId()).
                         ISBN(book.getISBN()).
                         title(book.getTitle()).
                         description(book.getDescription()).

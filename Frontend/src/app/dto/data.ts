@@ -100,11 +100,11 @@ export interface Cart {
 // Checkout
 export interface CheckoutRequest {
   customer: string;
-  products: Array<CheckoutProductInfo>;
+  books: Array<CheckoutProductInfo>;
 }
 
 export interface CheckoutProductInfo {
-  productId: number;
+  bookId: number;
   quantity: number;
 }
 

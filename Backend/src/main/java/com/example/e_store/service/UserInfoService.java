@@ -5,7 +5,6 @@ import com.example.e_store.dto.ProfileInfoResponse;
 import com.example.e_store.dto.UserEdit;
 import com.example.e_store.model.Book;
 import com.example.e_store.model.User;
-import com.example.e_store.repository.CheckoutRepository;
 import com.example.e_store.repository.BookRepository;
 import com.example.e_store.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +26,6 @@ public class UserInfoService {
 
     private final UserRepository userRepository;
     private final BookRepository productRepository;
-    private final CheckoutRepository checkoutRepository;
     private final PasswordEncoder passwordEncoder;
 
     private User getCurrentUser(String email) {
@@ -54,6 +52,7 @@ public class UserInfoService {
         List<BookSpecificDetails> productResponse = new ArrayList<>();
         for (Book book : books) {
             BookSpecificDetails response = BookSpecificDetails.builder().
+                    bookId(book.getBookId()).
                     ISBN(book.getISBN()).
                     title(book.getTitle()).
                     price(book.getPrice()).
@@ -66,19 +65,22 @@ public class UserInfoService {
         return productResponse;
     }
 
+    /*
+     * Leave it commented :)
     public List<BookSpecificDetails> getUserPurchasedProducts(String email) {
         Optional<User> owner = userRepository.findByEmail(email);
         if (!owner.isPresent()) return new ArrayList<>();
-        List<Long> products = checkoutRepository.findCustomerPurchases(owner.get().getUserId());
+        List<Checkout> products = checkoutRepository.findCustomerPurchases(owner.get().getUserId());
         log.info("Length of Purchased Products {}", products.size());
         List<BookSpecificDetails> productResponse = new ArrayList<>();
-        for (Long productId : products) {
-            Book book = productRepository.getById(productId);
+        for (Checkout checkout : products) {
+            Book book = productRepository.getById(checkout.getCompositeKey().getBook().getBookId());
             BookSpecificDetails response = BookSpecificDetails.builder().
+                    bookId(book.getBookId()).
                     ISBN(book.getISBN()).
                     title(book.getTitle()).
                     price(book.getPrice()).
-                    noOfCopies(book.getNoOfCopies()).
+                    noOfCopies(checkout.getQuantity()).
                     description(book.getDescription()).
                     image(book.getImage()).
                     build();
@@ -86,6 +88,8 @@ public class UserInfoService {
         }
         return productResponse;
     }
+    */
+
     public void editUserInfo(UserEdit userEdit) {
         User user = getCurrentUser(userEdit.getEmail());
         user.setFirstName(userEdit.getFirstName());

@@ -24,16 +24,13 @@ export class CheckoutComponent implements OnInit {
   checkout() {
     const cartProducts: CheckoutRequest = {
       customer: this.authService.getUserEmail(),
-      products: this.cartService.getCheckoutProducts(),
+      books: this.cartService.getCheckoutProducts(),
     };
     console.log("Cart Products To Be Checkout => ", cartProducts);
     this.checkoutService.sendCheckoutProducts(cartProducts).subscribe(() => {
-      let flag = this.getInformation();
-      if (flag == true) {
-        console.log("We Checkout, Babe .. HeHe");
-        this.cartService.clearCart();
-        this.checked = true;
-      }
+      console.log("We Checkout, Babe .. HeHe");
+      this.cartService.clearCart();
+      this.checked = true;
     });
   }
 
@@ -56,6 +53,7 @@ export class CheckoutComponent implements OnInit {
       return true;
     }
   }
+
   backHome() {
     this.router.navigateByUrl("home", { state: { logged: true } });
   }

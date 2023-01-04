@@ -2,9 +2,9 @@
   <mat-sidenav-container class="sidebar-container">
     <mat-sidenav #sidenav class="side-bar">
       <h3 class="head">Reports</h3>
-      <p>The total sales for books in the previous month</p>
-      <p>The top 5 customers who purchase the most purchase amount in descending order for the last three months</p>
-      <p>The top 10 selling books for the last three months</p>
+      <p>Total sales of last month</p>
+      <p>Top 5 customers last 3 months</p>
+      <p>Top 10 selling books last 3 months</p>
       <hr>
       <h3 class="head">Categories</h3>
       <p (click)="getCategory('Science')">Science</p>
@@ -46,7 +46,7 @@
               aria-hidden="true"></i></a>
           <div class="dropdown-content">
             <a href="user/profile">Profile</a>
-            <a (click)="getCustomerPurchasedProducts()">Purchased Products</a>
+            <!-- <a (click)="getCustomerPurchasedProducts()">Purchased Products</a> -->
             <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Products</a>
             <a *ngIf="isManager" href="user/add-item">Add Product</a>
             <a *ngIf="isManager" href="user/add-publisher">Add Publisher</a>

@@ -146,6 +146,7 @@ export class HomeComponent implements OnInit {
         this.setNoProductDetails();
       } else {
         this.details = res;
+        // console.log(this.details[0].bookId)
         this.setNoProductToNull();
       }
     });
@@ -211,6 +212,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  /*
   getCustomerPurchasedProducts() {
     this.setting();
     this.purchasedProducts = true;
@@ -228,6 +230,7 @@ export class HomeComponent implements OnInit {
         }
       });
   }
+  */
 
   setting() {
     this.ownedProducts = false;

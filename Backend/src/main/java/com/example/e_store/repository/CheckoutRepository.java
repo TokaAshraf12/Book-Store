@@ -21,10 +21,10 @@ public interface CheckoutRepository extends JpaRepository<Checkout, CompositeKey
 
     @Query(
             value =
-                    "SELECT c.product_id " +
+                    "SELECT * " +
                             "FROM checkout c " +
                             "WHERE c.customer_id = ?1",
             nativeQuery = true
     )
-    List<Long> findCustomerPurchases(Long userId);
+    List<Checkout> findCustomerPurchases(Long userId);
 }

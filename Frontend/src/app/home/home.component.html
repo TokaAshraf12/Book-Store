@@ -60,7 +60,7 @@
       <div class="products">
 
         <div class="product" *ngFor="let item of details;let indexOfelement=index;">
-          <div (click)="viewProduct(item.productId)">
+          <div (click)="viewProduct(item.ISBN)">
             <img src="data:image/jpeg;base64,{{item.image}}" alt="product image">
             <h3>{{item.title}}</h3>
             <p>{{ item.description }}</p>

@@ -12,12 +12,12 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order { // Place orders on books
+public class OrderRequest { // Place orders on books
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "bookId", referencedColumnName = "ISBN")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ISBN", referencedColumnName = "ISBN")
     private Book bookId;
     private Integer noOfCopies;
 }

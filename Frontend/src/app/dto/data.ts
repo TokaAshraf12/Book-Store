@@ -68,26 +68,8 @@ export interface BookResponse {
   isOwner: boolean;
 }
 
-// Product All Info
-export interface ProductAllInfo {
-  productId: number;
-  title: string;
-  isbn: number;
-  author: string;
-  publisher: string;
-  year: string;
-  price: number;
-  category: string;
-  inStock: number;
-  description: string;
-  image: any;
-  owner: string;
-  createdDate: string;
-  isOwner: boolean;
-}
-
-// Product Specific Details For Grabbing All Produts
-export interface ProductSpecificDetails {
+// Book Specific Details For Grabbing All Books
+export interface BookSpecificDetails {
   productId: number;
   title: string;
   isbn: number;

@@ -26,13 +26,13 @@ public class Book {
     private Integer threshold;
     @Column(nullable = false, length = 8)
     private String publicationYear;
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "authors", referencedColumnName = "authorId")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "authors", referencedColumnName = "author_id")
     private Set<Author> authors;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publisher", referencedColumnName = "name")
     private Publisher publisher;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "managerId", referencedColumnName = "userId")
     private User manager;
     @Lob

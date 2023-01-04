@@ -14,7 +14,7 @@ public class CompositeKey implements Serializable {
     @JoinColumn(name = "customerId", referencedColumnName = "userId")
     private User customer;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "productId", referencedColumnName = "productId")
+    @JoinColumn(name = "ISBN", referencedColumnName = "ISBN")
     private Book book;
     @Column(nullable = false, name = "dateOfPurchase")
     private String dateOfPurchase;

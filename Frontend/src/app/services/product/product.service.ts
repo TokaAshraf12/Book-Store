@@ -1,17 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import {
-  ProductAllInfo,
   ProductEdit,
-  ProductResponse,
-  ProductSpecificDetails,
-} from 'src/app/dto/data';
-import { environment } from 'src/environments/environment';
-import { LocalStorageService } from 'ngx-webstorage';
-import { Router } from '@angular/router';
+  BookResponse,
+  BookSpecificDetails,
+} from "src/app/dto/data";
+import { environment } from "src/environments/environment";
+import { LocalStorageService } from "ngx-webstorage";
+import { Router } from "@angular/router";
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ProductService {
   constructor(
@@ -25,53 +24,53 @@ export class ProductService {
       `${environment.apiBaseUrl}/api/product/create`,
       product,
       {
-        observe: 'events',
+        observe: "events",
         reportProgress: true,
       }
     );
   }
 
-  public getProduct(id: number): Observable<ProductResponse> {
-    return this.http.get<ProductResponse>(
+  public getProduct(id: number): Observable<BookResponse> {
+    return this.http.get<BookResponse>(
       `${environment.apiBaseUrl}/api/product/${id}`
     );
   }
 
-  public getAllProducts(): Observable<ProductSpecificDetails[]> {
-    return this.http.get<ProductSpecificDetails[]>(
+  public getAllProducts(): Observable<BookSpecificDetails[]> {
+    return this.http.get<BookSpecificDetails[]>(
       `${environment.apiBaseUrl}/api/product/all`
     );
   }
 
   // Products All Info __ Local Storage
-  storageAllInfoForProduct(info: ProductAllInfo) {
-    this.localStorage.store('product-all-Info', info);
+  storageAllInfoForProduct(info: BookResponse) {
+    this.localStorage.store("product-all-Info", info);
     if (this.getAllInfo()) {
-      this.router.navigateByUrl('/product');
+      this.router.navigateByUrl("/product");
     }
   }
 
   getAllInfo() {
     console.log(
-      this.localStorage.retrieve('product-all-Info') + 'ahhhhhhhhhhhhhhh'
+      this.localStorage.retrieve("product-all-Info") + "ahhhhhhhhhhhhhhh"
     );
-    return this.localStorage.retrieve('product-all-Info');
+    return this.localStorage.retrieve("product-all-Info");
   }
 
   public productAllInfo(productId: number, email: string) {
-    return this.http.get<ProductAllInfo>(
+    return this.http.get<BookResponse>(
       `${environment.apiBaseUrl}/api/product/${productId}/owner/${email}`
     );
   }
 
   public getProductsByCategory(category: string) {
-    return this.http.get<ProductSpecificDetails[]>(
+    return this.http.get<BookSpecificDetails[]>(
       `${environment.apiBaseUrl}/api/filter/${category}`
     );
   }
 
   public getProductsSorted(sort: string) {
-    return this.http.get<ProductSpecificDetails[]>(
+    return this.http.get<BookSpecificDetails[]>(
       `${environment.apiBaseUrl}/api/sort/${sort}`
     );
   }
@@ -81,9 +80,9 @@ export class ProductService {
       `${environment.apiBaseUrl}/api/product/edit`,
       product,
       {
-        observe: 'events',
+        observe: "events",
         reportProgress: true,
       }
-    ); 
+    );
   }
 }

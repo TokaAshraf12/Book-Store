@@ -10,6 +10,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductComponent } from './product/product.component';
 import { AddPublisherComponent } from './add-publisher/add-publisher.component';
 import { PublisherComponent } from './publisher/publisher.component';
+import { PublisherListComponent } from './publisher-list/publisher-list.component';
 
 
 
@@ -19,13 +20,15 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'user/add-item', component: AddItemComponent },
-  {path: 'user/cart' , component:CartComponent},
+  { path: 'user/cart' , component:CartComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'checkout', component: CheckoutComponent },
-  {path : 'product' , component: ProductComponent},
+  { path : 'product' , component: ProductComponent},
   { path: '', redirectTo: '/checkout', pathMatch: 'full'},
   { path: 'user/add-publisher', component: AddPublisherComponent },
-  {path : 'publisher' , component: PublisherComponent},
+  { path : 'publisher' , component: PublisherComponent},
+  { path : 'user/view-publishers' , component: PublisherListComponent},
+
 
 ];
 
@@ -44,5 +47,6 @@ export const routingComponents = [
   ProductComponent,
   CheckoutComponent,
   AddPublisherComponent,
-  PublisherComponent
+  PublisherComponent,
+  PublisherListComponent
 ];

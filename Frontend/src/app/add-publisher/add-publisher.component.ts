@@ -24,7 +24,6 @@ export class AddPublisherComponent {
       publisherName: publisherName,
       address: address,
       phoneNumber: phoneNumber,
-      owner: this.authService.getUserEmail(),
     };
 
     };

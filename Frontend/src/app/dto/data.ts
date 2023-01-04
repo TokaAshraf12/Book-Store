@@ -139,5 +139,12 @@ export interface PublisherRequest {
   publisherName: string;
   address: string;
   phoneNumber: string;
-  owner: string;
 }
+
+export interface order{
+   orderId:number;
+   ISBN:string;
+   bookTitle:string;
+   Quantity:number;
+}
+

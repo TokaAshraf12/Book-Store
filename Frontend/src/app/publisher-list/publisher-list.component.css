@@ -1,0 +1,23 @@
+  #order {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 85%;
+    margin-left: 95px;
+  }
+  
+  #order td, #order th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #order tr:nth-child(odd){background-color: #f5e9c6;}
+  
+  #order tr:hover {background-color: #9b6a01c5;}
+  
+  #order th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #9b6a01c5;
+    color: white;
+  }

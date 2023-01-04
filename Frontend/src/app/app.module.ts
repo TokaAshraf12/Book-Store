@@ -22,6 +22,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddPublisherComponent } from './add-publisher/add-publisher.component';
 import { PublisherComponent } from './publisher/publisher.component';
+import { PublisherListComponent } from './publisher-list/publisher-list.component';
 // import {MatPaginatorModule} from '@angular/material/Paginator';
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PublisherComponent } from './publisher/publisher.component';
     AddItemComponent, 
     CartComponent, 
     ProductComponent, 
-    CheckoutComponent, AddPublisherComponent, PublisherComponent
+    CheckoutComponent, AddPublisherComponent, PublisherComponent, PublisherListComponent
   ],
   imports: [
     BrowserModule,

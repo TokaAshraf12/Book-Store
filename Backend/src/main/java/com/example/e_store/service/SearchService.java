@@ -1,8 +1,8 @@
 package com.example.e_store.service;
 
-import com.example.e_store.dto.ProductSpecificDetails;
-import com.example.e_store.model.Product;
-import com.example.e_store.repository.ProductRepository;
+import com.example.e_store.dto.BookSpecificDetails;
+import com.example.e_store.model.Book;
+import com.example.e_store.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,24 +16,23 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 public class SearchService {
 
-    private final ProductRepository productRepository;
+    private final BookRepository productRepository;
 
-    public List<ProductSpecificDetails> getProductsWhenSearchBy(String searchBy) {
-        List<ProductSpecificDetails> res = new ArrayList<>();
-        List<Product> products = productRepository.findAll();
-        for (Product product : products) {
-            if (contains(product.getTitle(), searchBy) || contains(product.getDescription(), searchBy) ||
-                    contains(product.getPrice().toString(), searchBy) || contains(product.getCategory(), searchBy) ||
-                    contains(product.getInStock().toString(), searchBy)) {
-                if (product.getInStock() <= 0) continue;
-                log.info("HOHO: Marry Christmas ... Product #{} is Matching ...", product.getProductId());
-                ProductSpecificDetails productSpecificDetails = ProductSpecificDetails.builder().
-                        productId(product.getProductId()).
-                        title(product.getTitle()).
-                        description(product.getDescription()).
-                        price(product.getPrice()).
-                        image(product.getImage()).
-                        inStock(product.getInStock()).
+    public List<BookSpecificDetails> getProductsWhenSearchBy(String searchBy) {
+        List<BookSpecificDetails> res = new ArrayList<>();
+        List<Book> books = productRepository.findAll();
+        for (Book book : books) {
+            if (contains(book.getTitle(), searchBy) || contains(book.getDescription(), searchBy) ||
+                    contains(book.getPrice().toString(), searchBy) || contains(book.getCategory(), searchBy) ||
+                    contains(book.getNoOfCopies().toString(), searchBy)) {
+                log.info("HOHO: Marry Christmas ... Product #{} is Matching ...", book.getISBN());
+                BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                        ISBN(book.getISBN()).
+                        title(book.getTitle()).
+                        description(book.getDescription()).
+                        price(book.getPrice()).
+                        image(book.getImage()).
+                        noOfCopies(book.getNoOfCopies()).
                         build();
                 res.add(productSpecificDetails);
             }

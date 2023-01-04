@@ -1,6 +1,6 @@
 package com.example.e_store.controller;
 
-import com.example.e_store.dto.ProductSpecificDetails;
+import com.example.e_store.dto.BookSpecificDetails;
 import com.example.e_store.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class SearchController {
             method = RequestMethod.GET,
             value = "/{by}"
     )
-    public ResponseEntity<List<ProductSpecificDetails>> getAllProductsMatchWithBy(@PathVariable String by) {
+    public ResponseEntity<List<BookSpecificDetails>> getAllProductsMatchWithBy(@PathVariable String by) {
         log.info("Getting All Products Match With {} .. ", by);
         return ResponseEntity.ok().body(searchService.getProductsWhenSearchBy(by));
     }

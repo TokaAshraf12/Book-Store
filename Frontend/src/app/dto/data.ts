@@ -35,29 +35,37 @@ export interface AuthenticationResponse {
   email: String;
 }
 
-export interface ProductRequest {
+// Book going to server
+export interface BookRequest {
   title: string;
   price: number;
   category: string;
-  inStock: number;
+  noOfCopies: number;
+  threshold: number;
+  publicationYear: string;
+  authors: Array<string>;
+  publisher: string;
+  manager: string;
   description: string;
-  owner: string;
 }
 
-// Specific Product All Details
-export interface ProductResponse {
-  productId: number;
+// Specific Book All Details
+export interface BookResponse {
+  ISBN: number;
   title: string;
-  isbn: number;
   author: string;
   publisher: string;
   year: string;
   price: number;
   category: string;
-  inStock: number;
+  noOfCopies: number;
+  threshold: number;
+  publicationYear: string;
+  authors: Array<string>;
+  manager: string;
   description: string;
   image: any;
-  createdDate: string;
+  isOwner: boolean;
 }
 
 // Product All Info

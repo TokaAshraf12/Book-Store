@@ -46,9 +46,21 @@ export class HomeComponent implements OnInit {
     this.fileType = event.target.value;
     console.log(this.fileType);
     console.log(this.reportChoice);
-    this.reportService.generateReport(this.fileType);
+    if(this.reportChoice === "top10"){
+      console.log("lllllllll");
+      this.reportService.generateReport10(this.fileType);
+    }
+    if(this.reportChoice==="top5"){
+      console.log("rrrrrrr");
+      this.reportService.generateReport5(this.fileType);
+    }
+    if(this.reportChoice==="total"){
+      console.log("qqqqqqqq");
+      this.reportService.generateReportTotal(this.fileType);
+    }
+    
   }
-  
+
   appear10:boolean=false;
   appear5:boolean=false;
   appearTotal:boolean=false;

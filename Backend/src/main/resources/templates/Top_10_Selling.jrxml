@@ -33,7 +33,7 @@
             <staticText>
                 <reportElement style="SubTitle" x="63" y="46" width="200" height="22" uuid="c089ef81-84c2-4243-a7e9-0e0a8992e71a"/>
                 <textElement textAlignment="Right"/>
-                <text><![CDATA[]]></text>
+                <text><![CDATA[top ten]]></text>
             </staticText>
         </band>
     </title>
@@ -64,7 +64,7 @@
                 <reportElement style="Column header" x="370" y="19" width="185" height="15" uuid="b8fc17a8-6dfc-4e88-b697-aea973a47f30">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a4a7987-375a-4678-a9ad-8c7c5b7e464f"/>
                 </reportElement>
-                <text><![CDATA[auther]]></text>
+                <text><![CDATA[author]]></text>
             </staticText>
         </band>
     </columnHeader>

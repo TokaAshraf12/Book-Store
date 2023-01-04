@@ -12,11 +12,20 @@ export class ReportService {
 
   constructor( private http: HttpClient) { }
 
-  public generateReport(format : String) {
-    //  console.log(format);
-      console.log(`${environment.apiBaseUrl}/report/${format}`);
+  public generateReport5(format : String):Observable<String> {
      return this.http.get<String>(
-      `${environment.apiBaseUrl}/report/${format}`
+      `${environment.apiBaseUrl}/report5/${format}`
     );
   }
+
+  public generateReport10(format : String):Observable<String>{
+     return this.http.get<String>(
+     `${environment.apiBaseUrl}/report10/${format}`
+   );
+ }
+ public generateReportTotal(format : String):Observable<String> {
+  return this.http.get<String>(
+   `${environment.apiBaseUrl}/reportTotal/${format}`
+ );
+}
 }

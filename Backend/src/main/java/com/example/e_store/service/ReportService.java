@@ -19,6 +19,8 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class ReportService {
+    private final String path="C:\\Users\\origenal\\Downloads\\Report";
+    private final ProductService productService;
 
     public String exportReportTop5Customers(String fileFormat ) throws FileNotFoundException, JRException {
         List<RegisterRequest> employees = new ArrayList<>();
@@ -29,7 +31,7 @@ public class ReportService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Java Techie");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        String path="C:\\Users\\origenal\\Downloads\\Report";
+
         if(fileFormat.equalsIgnoreCase("html")){
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
         }
@@ -40,16 +42,16 @@ public class ReportService {
     }
 
     public String exportReportTop10Selling(String fileFormat) throws FileNotFoundException, JRException {
-        List<RegisterRequest> employees = new ArrayList<>();
+        List<Object> books= new ArrayList<>();
+
         //load file and compile it
         File file = ResourceUtils.getFile("classpath:templates/Top_10_Selling.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(books,false);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Book Store");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
-        String path="C:\\Users\\origenal\\Downloads\\Report";
         if(fileFormat.equalsIgnoreCase("html")){
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
         }
@@ -61,6 +63,7 @@ public class ReportService {
 
    public String exportReportTotalSales(String fileFormat) throws FileNotFoundException, JRException {
        List<RegisterRequest> employees = new ArrayList<>();
+
        //load file and compile it
        File file = ResourceUtils.getFile("classpath:templates/Total_Sales.jrxml");
        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -68,7 +71,7 @@ public class ReportService {
        Map<String, Object> parameters = new HashMap<>();
        parameters.put("createdBy", "Book Store");
        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-       String path="C:\\Users\\origenal\\Downloads\\Report";
+
        if(fileFormat.equalsIgnoreCase("html")){
            JasperExportManager.exportReportToHtmlFile(jasperPrint, path+".html");
        }

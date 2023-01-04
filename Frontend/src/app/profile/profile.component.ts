@@ -77,7 +77,15 @@ export class ProfileComponent implements OnInit {
     ) {
       return;
     }
-
+    this.profileSer.editUser({
+      email:this.authService.getUserEmail(),
+      firstName:this.newFname,
+      lastName :this.newLname,
+      password:this.newPass,
+      phoneNumber:this.newTel,
+    }).subscribe(() => {
+      console.log("Done Editing Product!!");
+    });
     console.log(this.newFname);
     console.log(this.newLname);
     console.log(this.newTel);

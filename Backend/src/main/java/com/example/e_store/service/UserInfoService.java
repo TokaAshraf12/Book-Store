@@ -2,6 +2,7 @@ package com.example.e_store.service;
 
 import com.example.e_store.dto.BookSpecificDetails;
 import com.example.e_store.dto.ProfileInfoResponse;
+import com.example.e_store.dto.UserEdit;
 import com.example.e_store.model.Book;
 import com.example.e_store.model.User;
 import com.example.e_store.repository.CheckoutRepository;
@@ -10,6 +11,7 @@ import com.example.e_store.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +28,7 @@ public class UserInfoService {
     private final UserRepository userRepository;
     private final BookRepository productRepository;
     private final CheckoutRepository checkoutRepository;
+    private final PasswordEncoder passwordEncoder;
 
     private User getCurrentUser(String email) {
         return userRepository.findByEmail(email).
@@ -82,5 +85,13 @@ public class UserInfoService {
             productResponse.add(response);
         }
         return productResponse;
+    }
+    public void editUserInfo(UserEdit userEdit) {
+        User user = getCurrentUser(userEdit.getEmail());
+        user.setFirstName(userEdit.getFirstName());
+        user.setLastName(userEdit.getLastName());
+        user.setPassword(passwordEncoder.encode(userEdit.getPassword()));
+        user.setPhoneNumber(userEdit.getPhoneNumber());
+        userRepository.save(user);
     }
 }

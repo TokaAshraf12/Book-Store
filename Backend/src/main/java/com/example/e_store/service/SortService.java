@@ -1,8 +1,8 @@
 package com.example.e_store.service;
 
-import com.example.e_store.dto.ProductSpecificDetails;
-import com.example.e_store.model.Product;
-import com.example.e_store.repository.ProductRepository;
+import com.example.e_store.dto.BookSpecificDetails;
+import com.example.e_store.model.Book;
+import com.example.e_store.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,44 +16,42 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SortService {
 
-    private final ProductRepository productRepository;
+    private final BookRepository productRepository;
 
-    public List<ProductSpecificDetails> getProductsSortedByPrice() {
-        List<ProductSpecificDetails> res = new ArrayList<>();
-        List<Product> products = productRepository.findAll();
-        products.sort((p1, p2) -> (int) (p1.getPrice() - p2.getPrice()));
+    public List<BookSpecificDetails> getProductsSortedByPrice() {
+        List<BookSpecificDetails> res = new ArrayList<>();
+        List<Book> books = productRepository.findAll();
+        books.sort((p1, p2) -> (int) (p1.getPrice() - p2.getPrice()));
 
-        for (Product product : products) {
-            if (product.getInStock() <= 0) continue;
-            log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", product.getProductId());
-            ProductSpecificDetails productSpecificDetails = ProductSpecificDetails.builder().
-                    productId(product.getProductId()).
-                    title(product.getTitle()).
-                    description(product.getDescription()).
-                    price(product.getPrice()).
-                    image(product.getImage()).
-                    inStock(product.getInStock()).
+        for (Book book : books) {
+            log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", book.getISBN());
+            BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                    ISBN(book.getISBN()).
+                    title(book.getTitle()).
+                    description(book.getDescription()).
+                    price(book.getPrice()).
+                    image(book.getImage()).
+                    noOfCopies(book.getNoOfCopies()).
                     build();
             res.add(productSpecificDetails);
         }
         return res;
     }
 
-    public List<ProductSpecificDetails> getProductsSortedByQuantityInStock() {
-        List<ProductSpecificDetails> res = new ArrayList<>();
-        List<Product> products = productRepository.findAll();
-        products.sort(Comparator.comparingInt(Product::getInStock));
+    public List<BookSpecificDetails> getProductsSortedByQuantityInStock() {
+        List<BookSpecificDetails> res = new ArrayList<>();
+        List<Book> books = productRepository.findAll();
+        books.sort(Comparator.comparingInt(Book::getNoOfCopies));
 
-        for (Product product : products) {
-            if (product.getInStock() <= 0) continue;
-            log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", product.getProductId());
-            ProductSpecificDetails productSpecificDetails = ProductSpecificDetails.builder().
-                    productId(product.getProductId()).
-                    title(product.getTitle()).
-                    description(product.getDescription()).
-                    price(product.getPrice()).
-                    image(product.getImage()).
-                    inStock(product.getInStock()).
+        for (Book book : books) {
+            log.info("HOHO: Marry Christmas ... Product #{} is Matching for Sorting By Price ...", book.getISBN());
+            BookSpecificDetails productSpecificDetails = BookSpecificDetails.builder().
+                    ISBN(book.getISBN()).
+                    title(book.getTitle()).
+                    description(book.getDescription()).
+                    price(book.getPrice()).
+                    image(book.getImage()).
+                    noOfCopies(book.getNoOfCopies()).
                     build();
             res.add(productSpecificDetails);
         }

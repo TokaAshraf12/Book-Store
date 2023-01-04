@@ -1,7 +1,10 @@
 package com.example.e_store.controller;
 
-import com.example.e_store.dto.*;
-import com.example.e_store.service.ProductService;
+import com.example.e_store.dto.BookResponse;
+import com.example.e_store.dto.BookSpecificDetails;
+import com.example.e_store.dto.ProductEdit;
+import com.example.e_store.dto.ProductRequest;
+import com.example.e_store.service.BookService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,7 +20,7 @@ import java.util.List;
 @RequestMapping("/api/product")
 public class ProductController {
 
-    private final ProductService productService;
+    private final BookService productService;
 
     @RequestMapping(
             method = RequestMethod.POST,
@@ -35,26 +38,18 @@ public class ProductController {
             method = RequestMethod.GET,
             value = "/all"
     )
-    public ResponseEntity<List<ProductSpecificDetails>> getAllProducts() {
+    public ResponseEntity<List<BookSpecificDetails>> getAllProducts() {
         log.info("Getting All Products .. ");
-        return ResponseEntity.ok().body(productService.getAllProducts());
+        return ResponseEntity.ok().body(productService.getAllBooks());
     }
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/{id}"
+            value = "/{id}/owner/{email}"
     )
-    public ResponseEntity<ProductResponse> getSpecificProduct(@PathVariable Long id) {
+    public ResponseEntity<BookResponse> getSpecificProduct(@PathVariable Long id, @PathVariable String email) {
         log.info("Getting Specific Product .. ");
-        return ResponseEntity.ok().body(productService.getSpecificProduct(id));
-    }
-
-    @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/{productId}/owner/{email}"
-    )
-    public ResponseEntity<ProductAllInfo> isUserTheOwnerOfThisProduct(@PathVariable Long productId, @PathVariable String email) {
-        return new ResponseEntity<>(productService.productAllInfo(productId, email), HttpStatus.OK);
+        return ResponseEntity.ok().body(productService.getSpecificProduct(id, email));
     }
 
     @RequestMapping(

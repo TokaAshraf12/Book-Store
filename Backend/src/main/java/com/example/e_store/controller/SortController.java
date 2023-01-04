@@ -1,6 +1,6 @@
 package com.example.e_store.controller;
 
-import com.example.e_store.dto.ProductSpecificDetails;
+import com.example.e_store.dto.BookSpecificDetails;
 import com.example.e_store.service.SortService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class SortController {
             method = RequestMethod.GET,
             value = "/price"
     )
-    public ResponseEntity<List<ProductSpecificDetails>> getAllProductsSortedByPrice() {
+    public ResponseEntity<List<BookSpecificDetails>> getAllProductsSortedByPrice() {
         log.info("Getting All Products Sorted By Price ... ");
         return ResponseEntity.ok().body(sortService.getProductsSortedByPrice());
     }
@@ -32,7 +32,7 @@ public class SortController {
             method = RequestMethod.GET,
             value = "/in-stock"
     )
-    public ResponseEntity<List<ProductSpecificDetails>> getAllProductsSortedByQuantityInStock() {
+    public ResponseEntity<List<BookSpecificDetails>> getAllProductsSortedByQuantityInStock() {
         log.info("Getting All Products Sorted By Quantity In Stock ... ");
         return ResponseEntity.ok().body(sortService.getProductsSortedByQuantityInStock());
     }

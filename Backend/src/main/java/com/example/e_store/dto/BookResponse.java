@@ -5,19 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductResponse {
-    private Long productId;
+public class BookResponse {
+    private Long ISBN;
     private String title;
     private Double price;
     private String category;
-    private Integer inStock;
+    private Integer noOfCopies;
+    private Integer threshold;
+    private String publicationYear;
+    private Set<String> authors;
+    private String publisher;
+    private String manager;
     private String description;
     private byte[] image;
-    private Instant createdDate;
+    private Boolean isOwner;
 }

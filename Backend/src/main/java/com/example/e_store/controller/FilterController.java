@@ -1,6 +1,6 @@
 package com.example.e_store.controller;
 
-import com.example.e_store.dto.ProductSpecificDetails;
+import com.example.e_store.dto.BookSpecificDetails;
 import com.example.e_store.service.FilterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class FilterController {
             method = RequestMethod.GET,
             value = "/{category}"
     )
-    public ResponseEntity<List<ProductSpecificDetails>> getAllProductsMatchWithBy(@PathVariable String category) {
+    public ResponseEntity<List<BookSpecificDetails>> getAllProductsMatchWithBy(@PathVariable String category) {
         log.info("Getting All Products Match With Category {} .. ", category);
         return ResponseEntity.ok().body(filterService.getProductsByCategory(category));
     }

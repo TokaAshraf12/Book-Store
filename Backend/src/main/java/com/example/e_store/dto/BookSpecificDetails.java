@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductSpecificDetails {
-    private Long productId;
+public class BookSpecificDetails {
+    private Long ISBN;
     private String title;
     private String description;
     private Double price;
-    private Integer inStock;
+    private Integer noOfCopies;
     private byte[] image;
 }

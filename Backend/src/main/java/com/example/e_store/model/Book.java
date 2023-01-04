@@ -6,35 +6,38 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.Instant;
+import java.util.Set;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Product {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
-    @NotBlank(message = "Product title can't be blank")
+    private Long ISBN;
+    @Column(nullable = false, length = 150)
     private String title;
-    @NotNull(message = "Price for products can't be null")
     private Double price;
-    @NotBlank(message = "Category for products can't be blank")
+    @Column(nullable = false, length = 20)
     private String category;
-    @ManyToOne(fetch = FetchType.EAGER)
+    private Integer noOfCopies;
+    private Integer threshold;
+    @Column(nullable = false, length = 8)
+    private String publicationYear;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "authors", referencedColumnName = "author_id")
+    private Set<Author> authors;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher", referencedColumnName = "name")
+    private Publisher publisher;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "managerId", referencedColumnName = "userId")
     private User manager;
-    @NotNull(message = "Quantity in stock for products can't be null")
-    private Integer inStock;
     @Lob
-    @NotBlank(message = "Description for products can't be blank")
     private String description;
     @Lob
     // @Column(name = "productImage", length = 1000)
     private byte[] image;
-    private Instant createdDate;
 }

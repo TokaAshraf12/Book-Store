@@ -58,6 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/api/checkout")
                 .permitAll()
+                .antMatchers("/api/publisher/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated();
     }

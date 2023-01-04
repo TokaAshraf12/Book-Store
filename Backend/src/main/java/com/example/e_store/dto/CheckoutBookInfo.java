@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CheckoutProductInfo {
-    private Long productId;
+public class CheckoutBookInfo {
+    private Long bookId;
     private Integer quantity;
 }

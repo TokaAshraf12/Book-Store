@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class BookSpecificDetails {
-    private Long ISBN;
+    private Long bookId;
+    private String ISBN;
     private String title;
     private String description;
     private Double price;

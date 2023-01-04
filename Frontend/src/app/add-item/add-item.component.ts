@@ -56,6 +56,7 @@ export class AddItemComponent {
     )).value.split("&");
     const publisher = (<HTMLInputElement>document.getElementById("publisher"))
       .value;
+    const isbn = (<HTMLInputElement>document.getElementById("id")).value;
 
     const book: BookRequest = {
       title: title,
@@ -68,6 +69,7 @@ export class AddItemComponent {
       publicationYear: publicationYear,
       authors: authors,
       publisher: publisher,
+      isbn: isbn,
     };
     console.log(
       `Book => ${book.title} \n${book.price} \n${book.description} \n${book.price} \n${book.authors} \nYear: ${book.publicationYear}`

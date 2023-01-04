@@ -1,6 +1,6 @@
 package com.example.e_store.service;
 
-import com.example.e_store.dto.CheckoutProductInfo;
+import com.example.e_store.dto.CheckoutBookInfo;
 import com.example.e_store.dto.CheckoutRequest;
 import com.example.e_store.model.Checkout;
 import com.example.e_store.model.CompositeKey;
@@ -30,8 +30,8 @@ public class CheckoutService {
     public void saveOrder(CheckoutRequest checkoutRequest) {
         Optional<User> user = userRepository.findByEmail(checkoutRequest.getCustomer());
         if (!user.isPresent()) return;
-        for (CheckoutProductInfo productInfo : checkoutRequest.getProducts()) {
-            Book book = productRepository.getById(productInfo.getProductId());
+        for (CheckoutBookInfo productInfo : checkoutRequest.getBooks()) {
+            Book book = productRepository.getById(productInfo.getBookId());
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date(System.currentTimeMillis());
             String d = formatter.format(date);

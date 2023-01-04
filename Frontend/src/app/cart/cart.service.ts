@@ -16,7 +16,7 @@ export class CartService {
 
     if (this.values == null) this.values = [];
     const find_prod = this.values.find((res) => {
-      if (res.quantity !== product.quantity && res.productId === product.productId) {
+      if (res.quantity !== product.quantity && res.bookId === product.bookId) {
         res.quantity = product.quantity;
         res.totalPrice = res.quantity * res.price;
       }
@@ -53,7 +53,7 @@ export class CartService {
     this.values = JSON.parse(this.getCart());
     this.values.forEach((ele) => {
       res.push({
-        productId: ele.productId,
+        productId: ele.bookId,
         quantity: ele.quantity,
       });
     });

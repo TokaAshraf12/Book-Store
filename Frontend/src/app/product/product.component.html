@@ -17,7 +17,7 @@
               <br>
               <br>
               <span class="seller">
-                <b>Owner: {{ product.owner }}</b>
+                <b>Owner: {{ product.manager }}</b>
               </span>
               <br>
               <br>
@@ -36,8 +36,8 @@
             </span>
             <span class="author">
               <span *ngIf="isOwner" (click)="editAuthor()" class="fa fa-edit" style="font-size:28px;"> </span>
-              <span *ngIf="noAuthorEdit" id="author"><span class="color"><b>Author: </b></span> {{product.author}}</span>
-              <input *ngIf="!noAuthorEdit" id="author_after_edit" value={{product.author}} />
+              <span *ngIf="noAuthorEdit" id="author"><span class="color"><b>Author: </b></span> {{product.authors}}</span>
+              <input *ngIf="!noAuthorEdit" id="author_after_edit" value={{product.authors}} />
               <button *ngIf="!noAuthorEdit" (click)="exitEditAuthor()">Ok </button>
             </span>
             <span class="publisher">
@@ -48,8 +48,8 @@
             </span>
             <span class="publication-year">
               <span *ngIf="isOwner" (click)="editPublicationYear()" class="fa fa-edit" style="font-size:28px;"> </span>
-              <span *ngIf="noPublicationYearEdit" id="year"><span class="color"><b>Publication Year: </b></span> {{product.year}}</span>
-              <input *ngIf="!noPublicationYearEdit" id="year_after_edit" value={{product.year}} />
+              <span *ngIf="noPublicationYearEdit" id="year"><span class="color"><b>Publication Year: </b></span> {{product.publicationYear}}</span>
+              <input *ngIf="!noPublicationYearEdit" id="year_after_edit" value={{product.publicationYear}} />
               <button *ngIf="!noPublicationYearEdit" (click)="exitEditPublicationYear()">Ok </button>
             </span>
             <span class="price">
@@ -66,8 +66,8 @@
             </span>
             <span class="quantity">
               <span *ngIf="isOwner" (click)="editInStock()" class="fa fa-edit" style="font-size:28px;"> </span>
-              <span *ngIf="noInStockEditing" id="inStock"><span class="color"><b>Quantity: </b></span> {{product.inStock}}</span>
-              <input *ngIf="!noInStockEditing" id="inStock_after_edit" value={{product.inStock}} />
+              <span *ngIf="noInStockEditing" id="inStock"><span class="color"><b>Quantity: </b></span> {{product.noOfCopies}}</span>
+              <input *ngIf="!noInStockEditing" id="inStock_after_edit" value={{product.noOfCopies}} />
               <button *ngIf="!noInStockEditing" (click)="exitEditInStock()">Ok </button>
             </span>
             <!--<span class="product-description">

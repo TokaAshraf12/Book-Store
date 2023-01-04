@@ -2,8 +2,8 @@ package com.example.e_store.controller;
 
 import com.example.e_store.dto.BookResponse;
 import com.example.e_store.dto.BookSpecificDetails;
-import com.example.e_store.dto.ProductEdit;
-import com.example.e_store.dto.ProductRequest;
+import com.example.e_store.dto.BookEdit;
+import com.example.e_store.dto.BookRequest;
 import com.example.e_store.service.BookService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class ProductController {
             value = "/create"
     )
     public ResponseEntity<?> createProduct(
-            @RequestPart("product") ProductRequest productRequest,
+            @RequestPart("product") BookRequest productRequest,
             @RequestPart("imageFile") MultipartFile image) {
         productService.save(productRequest, image);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -38,7 +38,7 @@ public class ProductController {
             method = RequestMethod.GET,
             value = "/all"
     )
-    public ResponseEntity<List<BookSpecificDetails>> getAllProducts() {
+    public ResponseEntity<List<BookSpecificDetails>> getAllBooks() {
         log.info("Getting All Products .. ");
         return ResponseEntity.ok().body(productService.getAllBooks());
     }
@@ -57,7 +57,8 @@ public class ProductController {
             consumes = {"application/json"},
             value = "/edit"
     )
-    public ResponseEntity<?> editProduct(@RequestBody ProductEdit productEdit) {
+    public ResponseEntity<?> editProduct(@RequestBody BookEdit productEdit) {
+        log.info("Authors: {}", productEdit.getAuthors().toArray());
         productService.editProduct(productEdit);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

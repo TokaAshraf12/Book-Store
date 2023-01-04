@@ -35,9 +35,9 @@ export interface AuthenticationResponse {
   email: String;
 }
 
-
 // Book going to server
 export interface BookRequest {
+  isbn: string;
   title: string;
   price: number;
   category: string;
@@ -52,26 +52,8 @@ export interface BookRequest {
 
 // Specific Book All Details
 export interface BookResponse {
-  ISBN: number;
-  title: string;
-  author: string;
-  publisher: string;
-  year: string;
-  price: number;
-  category: string;
-  noOfCopies: number;
-  threshold: number;
-  publicationYear: string;
-  authors: Array<string>;
-  manager: string;
-  description: string;
-  image: any;
-  isOwner: boolean;
-}
-
-// Specific Book All Details
-export interface BookResponse {
-  ISBN: number;
+  bookId: number;
+  isbn: string;
   title: string;
   author: string;
   publisher: string;
@@ -90,28 +72,25 @@ export interface BookResponse {
 
 // Book Specific Details For Grabbing All Books
 export interface BookSpecificDetails {
-  productId: number;
+  bookId: number;
+  isbn: string;
   title: string;
-  isbn: number;
-  author: string;
-  publisher: string;
-  year: string;
   description: string;
   price: number;
-  inStock: number;
+  noOfCopies: number;
   image: any;
 }
 
 export interface Cart {
-  productId: number;
+  bookId: number;
   title: string;
-  isbn: number;
+  isbn: string;
   author: string;
   publisher: string;
-  year: string;
+  publicationYear: string;
   price: number;
   category: string;
-  inStock: number;
+  noOfCopies: number;
   description: string;
   image: any;
   quantity: number;
@@ -129,31 +108,30 @@ export interface CheckoutProductInfo {
   quantity: number;
 }
 
-// Edit Product
+// Edit Book :)
 export interface ProductEdit {
-  productId: number;
+  bookId: number;
+  isbn: string;
   title: string;
-  isbn: number;
-  author: string;
+  authors: Array<string>;
   publisher: string;
-  year: string;
+  publicationYear: string;
   price: number;
   category: string;
-  inStock: number;
+  noOfCopies: number;
   description: string;
 }
 
-
 // Publisher All Info
 export interface PublisherRequest {
-  publisherName: string;
+  name: string;
   address: string;
-  phoneNumber: string;
+  phone: string;
 }
 
-export interface order{
-   orderId:number;
-   ISBN:string;
-   bookTitle:string;
-   Quantity:number;
+export interface order {
+  orderId: number;
+  ISBN: string;
+  bookTitle: string;
+  Quantity: number;
 }

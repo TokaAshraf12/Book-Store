@@ -29,12 +29,13 @@ public class BookService {
     private final AuthorRepository authorRepository;
     private final UserRepository userRepository;
 
-    public void save(ProductRequest bookRequest, MultipartFile image) {
+    public void save(BookRequest bookRequest, MultipartFile image) {
         Optional<User> manager = userRepository.findByEmail(bookRequest.getManager());
         if (!manager.isPresent()) return;
 
         try {
             Book book = new Book();
+            book.setISBN(bookRequest.getISBN());
             book.setTitle(bookRequest.getTitle());
             book.setPrice(bookRequest.getPrice());
             book.setCategory(bookRequest.getCategory());
@@ -68,6 +69,7 @@ public class BookService {
         List<BookSpecificDetails> res = new ArrayList<>();
         for (Book book : books) {
             res.add(BookSpecificDetails.builder().
+                    bookId(book.getBookId()).
                     ISBN(book.getISBN()).
                     title(book.getTitle()).
                     description(book.getDescription()).
@@ -75,6 +77,7 @@ public class BookService {
                     image(book.getImage()).
                     noOfCopies(book.getNoOfCopies()).
                     build());
+            // log.info("Book ISBN => {}", res.get(res.size() - 1).getISBN());
         }
         return res;
     }
@@ -84,6 +87,7 @@ public class BookService {
         Set<String> authors = new HashSet<>();
         for (Author author : book.getAuthors()) authors.add(author.getName());
         return BookResponse.builder().
+                bookId(book.getBookId()).
                 ISBN(book.getISBN()).
                 title(book.getTitle()).
                 description(book.getDescription()).
@@ -100,9 +104,29 @@ public class BookService {
                 build();
     }
 
-    public void editProduct(ProductEdit productEdit) {
-        Book book = bookRepository.getById(productEdit.getProductId());
-        book.setNoOfCopies(productEdit.getInStock());
+    public void editProduct(BookEdit productEdit) {
+        Book book = bookRepository.getById(productEdit.getBookId());
+        // Authors
+        Set<Author> authorList = new HashSet<>();
+        for (String author : productEdit.getAuthors()) {
+            Optional<Author> au = authorRepository.findByName(author);
+            if (!au.isPresent()) {
+                Author temp = new Author();
+                temp.setName(author);
+                authorRepository.save(temp);
+                authorList.add(temp);
+                continue;
+            }
+            authorList.add(au.get());
+            log.info("Author: {}", author);
+        }
+        book.setAuthors(authorList);
+        // Publisher
+        Optional<Publisher> publisher = publisherRepository.findByName(productEdit.getPublisher());
+        publisher.ifPresent(book::setPublisher);
+        // the rest
+        book.setISBN(productEdit.getISBN());
+        book.setNoOfCopies(productEdit.getNoOfCopies());
         book.setCategory(productEdit.getCategory());
         book.setPrice(productEdit.getPrice());
         book.setTitle(productEdit.getTitle());

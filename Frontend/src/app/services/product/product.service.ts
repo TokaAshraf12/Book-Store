@@ -30,9 +30,9 @@ export class ProductService {
     );
   }
 
-  public getProduct(id: number): Observable<BookResponse> {
+  public getProduct(id: number, email: string): Observable<BookResponse> {
     return this.http.get<BookResponse>(
-      `${environment.apiBaseUrl}/api/product/${id}`
+      `${environment.apiBaseUrl}/api/product/${id}/owner/${email}`
     );
   }
 
@@ -50,17 +50,8 @@ export class ProductService {
     }
   }
 
-  getAllInfo() {
-    console.log(
-      this.localStorage.retrieve("product-all-Info") + "ahhhhhhhhhhhhhhh"
-    );
+  getAllInfo(): BookResponse {
     return this.localStorage.retrieve("product-all-Info");
-  }
-
-  public productAllInfo(productId: number, email: string) {
-    return this.http.get<BookResponse>(
-      `${environment.apiBaseUrl}/api/product/${productId}/owner/${email}`
-    );
   }
 
   public getProductsByCategory(category: string) {

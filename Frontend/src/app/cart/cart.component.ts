@@ -45,10 +45,10 @@ export class CartComponent implements OnInit {
       'Cart quantity: ' +
         this.product[id].quantity +
         '\nIn Stock: ' +
-        this.product[id].inStock
+        this.product[id].noOfCopies
     );
     // console.log('Product: ' + this.product[id])
-    if (this.product[id].inStock <= this.product[id].quantity) return;
+    if (this.product[id].noOfCopies <= this.product[id].quantity) return;
     this.product[id].quantity++;
     const quan = this.product[id].quantity;
     this.cartService.storageCart(this.product[id]);
@@ -92,10 +92,10 @@ export class CartComponent implements OnInit {
   }
 
   backHome() {
-    this.router.navigateByUrl('home', { state: { logged: true } });
+    this.router.navigateByUrl('home');
   }
 
   check() {
-    this.router.navigateByUrl('checkout', { state: { logged: true } });
+    this.router.navigateByUrl('checkout');
   }
 }

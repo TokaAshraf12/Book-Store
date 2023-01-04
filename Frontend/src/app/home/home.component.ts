@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
       }
     };
   }
-  
+
   cancelbuttonpromotion() {
     var modal = document.getElementById("myModal")!;
     this.promoteduserlabel.nativeElement.value = "";
@@ -141,7 +141,6 @@ export class HomeComponent implements OnInit {
     this.productService.getAllProducts().subscribe((res) => {
       const productsDiv = document.getElementById("products");
       if (productsDiv) productsDiv.innerHTML = "";
-      console.log("All Products => " + res);
       if (res.length === 0) {
         this.details = [];
         this.setNoProductDetails();
@@ -149,15 +148,15 @@ export class HomeComponent implements OnInit {
         this.details = res;
         this.setNoProductToNull();
       }
-      // this.details = res;
     });
   }
 
   viewProduct(id: any) {
+    console.log("Book Id => " + id);
     this.setting();
     let productAllInfoToView: BookResponse;
     this.productService
-      .productAllInfo(id, this.authService.getUserEmail())
+      .getProduct(id, this.authService.getUserEmail())
       .subscribe((res) => {
         productAllInfoToView = res;
         console.log(productAllInfoToView);

@@ -17,7 +17,7 @@ public class OrderRequest { // Place orders on books
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ISBN", referencedColumnName = "ISBN")
+    @JoinColumn(name = "bookId", referencedColumnName = "bookId")
     private Book bookId;
     private Integer noOfCopies;
 }

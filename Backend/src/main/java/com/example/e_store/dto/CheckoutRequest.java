@@ -11,5 +11,5 @@ import java.util.List;
 @NoArgsConstructor
 public class CheckoutRequest {
     private String customer;
-    private List<CheckoutProductInfo> products;
+    private List<CheckoutBookInfo> books;
 }

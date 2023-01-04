@@ -12,7 +12,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 public class BookResponse {
-    private Long ISBN;
+    private Long bookId;
+    private String ISBN;
     private String title;
     private Double price;
     private String category;

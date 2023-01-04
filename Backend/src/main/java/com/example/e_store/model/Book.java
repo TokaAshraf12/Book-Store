@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -16,7 +17,9 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ISBN;
+    private Long bookId;
+    @Column(unique = true, nullable = false, length = 50)
+    private String ISBN;
     @Column(nullable = false, length = 150)
     private String title;
     private Double price;
@@ -27,8 +30,8 @@ public class Book {
     @Column(nullable = false, length = 8)
     private String publicationYear;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "authors", referencedColumnName = "author_id")
-    private Set<Author> authors;
+    @JoinColumn(referencedColumnName = "author_id")
+    private Set<Author> authors = new HashSet<>();
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publisher", referencedColumnName = "name")
     private Publisher publisher;

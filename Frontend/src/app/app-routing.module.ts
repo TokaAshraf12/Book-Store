@@ -8,6 +8,10 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductComponent } from './product/product.component';
+import { AddPublisherComponent } from './add-publisher/add-publisher.component';
+import { PublisherComponent } from './publisher/publisher.component';
+
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +23,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'checkout', component: CheckoutComponent },
   {path : 'product' , component: ProductComponent},
-  { path: '', redirectTo: '/checkout', pathMatch: 'full'}
+  { path: '', redirectTo: '/checkout', pathMatch: 'full'},
+  { path: 'user/add-publisher', component: AddPublisherComponent },
+  {path : 'publisher' , component: PublisherComponent},
+
 ];
 
 @NgModule({
@@ -35,5 +42,7 @@ export const routingComponents = [
   AddItemComponent,
   CartComponent,
   ProductComponent,
-  CheckoutComponent
+  CheckoutComponent,
+  AddPublisherComponent,
+  PublisherComponent
 ];

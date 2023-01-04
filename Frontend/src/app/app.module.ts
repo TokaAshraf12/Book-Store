@@ -16,11 +16,12 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { CartComponent } from './cart/cart.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { CheckoutComponent } from './checkout/checkout.component';
-
 import { ProductComponent } from './product/product.component';
 import { LayoutModule } from '@angular/cdk/layout';
 // import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddPublisherComponent } from './add-publisher/add-publisher.component';
+import { PublisherComponent } from './publisher/publisher.component';
 // import {MatPaginatorModule} from '@angular/material/Paginator';
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddItemComponent, 
     CartComponent, 
     ProductComponent, 
-    CheckoutComponent
+    CheckoutComponent, AddPublisherComponent, PublisherComponent
   ],
   imports: [
     BrowserModule,

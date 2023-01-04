@@ -35,6 +35,7 @@ export interface AuthenticationResponse {
   email: String;
 }
 
+
 // Book going to server
 export interface BookRequest {
   title: string;
@@ -47,6 +48,25 @@ export interface BookRequest {
   publisher: string;
   manager: string;
   description: string;
+}
+
+// Specific Book All Details
+export interface BookResponse {
+  ISBN: number;
+  title: string;
+  author: string;
+  publisher: string;
+  year: string;
+  price: number;
+  category: string;
+  noOfCopies: number;
+  threshold: number;
+  publicationYear: string;
+  authors: Array<string>;
+  manager: string;
+  description: string;
+  image: any;
+  isOwner: boolean;
 }
 
 // Specific Book All Details
@@ -137,4 +157,3 @@ export interface order{
    bookTitle:string;
    Quantity:number;
 }
-

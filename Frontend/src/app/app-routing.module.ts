@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { AddPublisherComponent } from './add-publisher/add-publisher.component';
 import { PublisherComponent } from './publisher/publisher.component';
 import { PublisherListComponent } from './publisher-list/publisher-list.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'user/add-publisher', component: AddPublisherComponent },
   { path : 'publisher' , component: PublisherComponent},
   { path : 'user/view-publishers' , component: PublisherListComponent},
+  { path : 'user/view-orders' , component: OrdersComponent},
 
 
 ];

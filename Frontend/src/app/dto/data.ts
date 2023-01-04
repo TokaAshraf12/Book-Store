@@ -135,3 +135,12 @@ export interface order {
   bookTitle: string;
   Quantity: number;
 }
+
+// Edit User
+export interface UserEdit {
+  email:string;
+  firstName:string;
+  lastName :string;
+  password:string;
+  phoneNumber:string;
+}

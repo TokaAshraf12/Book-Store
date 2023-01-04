@@ -1,0 +1,17 @@
+<body>
+<div id="data-table">
+    <table id="order">
+        <tr>
+            <th>Publisher Name</th>
+            <th>Address</th>
+            <th>Phone number</th>
+        </tr>
+        <tr class="product" *ngFor="let item of publisherList;">
+            <td><span>{{item.publisherName}}</span></td>
+            <td><span>{{item.address}}</span></td>
+            <td><span>{{item.phoneNumber}}</span></td>
+        </tr>
+    </table>    
+</div>
+</body>
+

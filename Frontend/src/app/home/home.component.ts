@@ -50,8 +50,7 @@ export class HomeComponent implements OnInit {
           alert(" Make sure you entered a valid useremail")
   
         }
-    
-    
+  
       }
       this.promoteduserlabel.nativeElement.value = "";
        modal.style.display = "none";
@@ -156,6 +155,7 @@ export class HomeComponent implements OnInit {
       // this.details = res;
     });
   }
+  
 
   viewProduct(id: any) {
     this.setting();

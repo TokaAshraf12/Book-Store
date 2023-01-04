@@ -132,3 +132,19 @@ export interface ProductEdit {
   inStock: number;
   description: string;
 }
+
+
+// Publisher All Info
+export interface PublisherRequest {
+  publisherName: string;
+  address: string;
+  phoneNumber: string;
+}
+
+export interface order{
+   orderId:number;
+   ISBN:string;
+   bookTitle:string;
+   Quantity:number;
+}
+

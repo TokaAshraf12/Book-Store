@@ -70,7 +70,7 @@
               <input *ngIf="!noInStockEditing" id="inStock_after_edit" value={{product.noOfCopies}} />
               <button *ngIf="!noInStockEditing" (click)="exitEditInStock()">Ok </button>
             </span>
-            <!--<span class="product-description">
+            <span class="product-description">
               <span *ngIf="isOwner" (click)="editDescription()" class="fa fa-edit" style="font-size:28px;"> </span>
               <span *ngIf="noDescriptionEditing" id="desc">
                 <span class="color"><b>About The Product: </b></span>
@@ -78,7 +78,7 @@
               </span>
               <input *ngIf="!noDescriptionEditing" id="desc_after_edit" value={{product.description}} />
               <button *ngIf="!noDescriptionEditing" type="button" (click)="exitEditDescription()">Ok </button>
-            </span> -->
+            </span>
             <div class="action">
               <button *ngIf="isOwner" class="add-to-cart btn btn-default" type="button" (click)="saveChanges()">Save</button>
               <button class="add-to-cart btn btn-default" type="button" (click)="addToCart()">Add To Cart</button>

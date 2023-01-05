@@ -125,3 +125,9 @@ h1 {
 #Number-Valid {
   display: none;
 }
+#year-Valid {
+  display: none;
+}
+#CVV-Valid {
+  display: none;
+}

@@ -75,8 +75,8 @@
           <div class="dropdown-content">
             <a href="user/profile">Profile</a>
             <!-- <a (click)="getCustomerPurchasedProducts()">Purchased Products</a> -->
-            <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Products</a>
-            <a *ngIf="isManager" href="user/add-item">Add Product</a>
+            <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Books</a>
+            <a *ngIf="isManager" href="user/add-item">Add Book</a>
             <a *ngIf="isManager" href="user/add-publisher">Add Publisher</a>
             <a *ngIf="isManager" href="user/view-publishers">View Publishers</a>
             <a *ngIf="isManager" #promotion (click)="promoteuserwindow()">Promote User</a>

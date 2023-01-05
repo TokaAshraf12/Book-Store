@@ -46,6 +46,9 @@ export class HomeComponent implements OnInit {
     let modal = document.getElementById("myModal")!;
     if (useremail != null) {
       console.log(useremail);
+      this.userService.promoteUser(useremail).subscribe(
+        () => console.log('E5lasy B2222a')
+      );
       // send useremail to backend
       // get response true or false
       alert(useremail + " is promoted successfully");

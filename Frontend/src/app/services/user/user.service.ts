@@ -10,15 +10,21 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getManagerOwnedProducts(email: string) {
+  public getManagerOwnedProducts(email: string) {
     return this.http.get<BookSpecificDetails[]>(
       `${environment.apiBaseUrl}/api/user/owned/products/${email}`
     )
   }
 
-  getCustomerPurchasedProducts(email: string) {
+  public getCustomerPurchasedProducts(email: string) {
     return this.http.get<BookSpecificDetails[]>(
       `${environment.apiBaseUrl}/api/user/purchased/products/${email}`
+    )
+  }
+
+  public promoteUser(email: string) {
+    return this.http.get<void>(
+      `${environment.apiBaseUrl}/api/user/promote/${email}`
     )
   }
 }

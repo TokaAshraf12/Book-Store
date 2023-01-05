@@ -38,14 +38,14 @@ public class UserInfoController {
         return ResponseEntity.ok().body(userInfoService.getUserOwnerProducts(email));
     }
 
-    @RequestMapping(
+    /**@RequestMapping(
             method = RequestMethod.GET,
             value = "/purchased/products/{email}"
     )
     public ResponseEntity<List<BookSpecificDetails>> getUserPurchasedProducts(@PathVariable String email) {
         log.info("Getting User Purchased Products");
         return ResponseEntity.ok().body(userInfoService.getUserPurchasedProducts(email));
-    }
+    }**/
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/edit"
@@ -53,5 +53,9 @@ public class UserInfoController {
     public ResponseEntity<?> editUser(@RequestBody UserEdit userEdit) {
         userInfoService.editUserInfo(userEdit);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    public ResponseEntity<Boolean> promoteUser(@PathVariable String email) {
+        log.info("yarab: el sabr w se7a w ra7ma w eny ang7 el sandy ba2a eh el araf dah"+ email);
+        return ResponseEntity.ok().body(userInfoService.promoteUser(email));
     }
 }

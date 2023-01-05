@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { AuthService } from "../services/auth/auth.service";
 import { PublisherService } from "../services/publisher/publisher.service";
+import { Router } from "@angular/router";
+
 @Component({
   selector: "app-publisher-list",
   templateUrl: "./publisher-list.component.html",
@@ -13,7 +15,8 @@ export class PublisherListComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private publisherService: PublisherService
+    private publisherService: PublisherService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +56,8 @@ export class PublisherListComponent implements OnInit {
       this.isManager = res;
       console.log("Is Manager => " + this.isManager);
     });
+  }
+  backHome() {
+    this.router.navigateByUrl("home", { state: { logged: true } });
   }
 }

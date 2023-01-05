@@ -4,6 +4,8 @@ import { UserService } from "../services/user/user.service";
 import { PublisherService } from "../services/publisher/publisher.service";
 import { PublisherRequest } from "../dto/data";
 import { OrdersService } from "../services/orders/orders.service";
+import { Router } from "@angular/router";
+
 @Component({
   selector: "app-orders",
   templateUrl: "./orders.component.html",
@@ -18,7 +20,8 @@ export class OrdersComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private orderService: OrdersService
+    private orderService: OrdersService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -74,5 +77,8 @@ export class OrdersComponent implements OnInit {
       this.isManager = res;
       console.log("Is Manager => " + this.isManager);
     });
+  }
+  backHome() {
+    this.router.navigateByUrl("home", { state: { logged: true } });
   }
 }

@@ -18,4 +18,12 @@ public interface SearchRepository extends JpaRepository<Book, Long> {
             "WHERE b.category LIKE :category ",
             nativeQuery = true)
     List<Book> searchByCategory(@Param("category") String category);
+
+    @Query(value = "SELECT * from book as b ORDER BY b.price",
+            nativeQuery = true)
+    List<Book> sortByPrice();
+
+    @Query(value = "SELECT * from book as b ORDER BY b.no_of_copies",
+            nativeQuery = true)
+    List<Book> sortByNoOfCopies();
 }

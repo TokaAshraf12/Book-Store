@@ -38,6 +38,8 @@ public class UserInfoController {
         return ResponseEntity.ok().body(userInfoService.getUserOwnerProducts(email));
     }
 
+    /*
+     * Comment It For Now :)
     @RequestMapping(
             method = RequestMethod.GET,
             value = "/purchased/products/{email}"
@@ -46,6 +48,8 @@ public class UserInfoController {
         log.info("Getting User Purchased Products");
         return ResponseEntity.ok().body(userInfoService.getUserPurchasedProducts(email));
     }
+    */
+
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/edit"

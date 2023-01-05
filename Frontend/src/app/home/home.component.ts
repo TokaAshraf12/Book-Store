@@ -5,6 +5,7 @@ import { CartService } from "../cart/cart.service";
 import { SearchService } from "../services/search/search.service";
 import { UserService } from "../services/user/user.service";
 import { BookResponse } from "../dto/data";
+import { ReportService } from "../services/report/report.service";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -21,13 +22,19 @@ export class HomeComponent implements OnInit {
   page: any = 1;
   ownedProducts: boolean = false;
   purchasedProducts: boolean = false;
+  appear10: boolean = false;
+  appear5: boolean = false;
+  appearTotal: boolean = false;
+  reportChoice: any;
+  fileType: any;
 
   constructor(
     private authService: AuthService,
     private productService: ProductService,
     private searchService: SearchService,
     private cartService: CartService,
-    private userService: UserService
+    private userService: UserService,
+    private reportService: ReportService
   ) {}
 
   ngOnInit(): void {
@@ -231,6 +238,53 @@ export class HomeComponent implements OnInit {
       });
   }
   */
+
+  handleReports() {}
+  
+  getFileType(event: any) {
+    this.fileType = event.target.value;
+    console.log(this.fileType);
+    console.log(this.reportChoice);
+    if (this.reportChoice === "top10") {
+      console.log("Top 10");
+      this.reportService.generateReport10(this.fileType).subscribe(
+        () => console.log("Ma4yyyyyyyyy")
+      );
+    }
+    if (this.reportChoice === "top5") {
+      console.log("Top 5");
+      this.reportService.generateReport5(this.fileType).subscribe(
+        () => console.log("Ma4yyyyyyyyy")
+      );
+    }
+    if (this.reportChoice === "total") {
+      console.log("Total Sales");
+      this.reportService.generateReportTotal(this.fileType).subscribe(
+        () => console.log("Ma4yyyyyyyyy")
+      );
+    }
+  }
+
+  chooseTypeTop10() {
+    this.reportChoice = "top10";
+    this.appear10 = true;
+    this.appear5 = false;
+    this.appearTotal = false;
+  }
+
+  chooseTypeTop5() {
+    this.reportChoice = "top5";
+    this.appear5 = true;
+    this.appear10 = false;
+    this.appearTotal = false;
+  }
+
+  chooseTypeTotal() {
+    this.reportChoice = "total";
+    this.appearTotal = true;
+    this.appear5 = false;
+    this.appear10 = false;
+  }
 
   setting() {
     this.ownedProducts = false;

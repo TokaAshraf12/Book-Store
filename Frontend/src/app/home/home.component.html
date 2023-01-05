@@ -1,11 +1,39 @@
 <body>
   <mat-sidenav-container class="sidebar-container">
     <mat-sidenav #sidenav class="side-bar">
-      <h3 class="head">Reports</h3>
+      <h3 *ngIf="isManager" class="head">Trending</h3>
+
+      <p *ngIf="isManager" (click)="chooseTypeTop10()">Top 10 Selling Books</p>
+      <form class="type" *ngIf="appear10">
+        <input type="radio" id="html" value="html" name="report-1" (change)="getFileType($event)">
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="report-1" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+      </form>
+
+      <p *ngIf="isManager" (click)="chooseTypeTop5()">Top 5 Customers</p>
+      <form class="type" *ngIf="appear5">
+        <input type="radio" id="html" value="html" name="report-2" (change)="getFileType($event)">
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="report-2" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+      </form>
+
+      <p *ngIf="isManager" (click)="chooseTypeTotal()">Total Sales </p>
+      <form class="type" *ngIf="appearTotal">
+        <input type="radio" id="html" value="html" name="report-3" (change)="getFileType($event)">
+        <label for="html">HTML</label> &nbsp;
+        <input type="radio" id="pdf" value="pdf" name="report-3" (change)="getFileType($event)">
+        <label for="pdf">PDF</label>
+      </form>
+
+      <hr *ngIf="isManager">
+      <!--
       <p>Total sales of last month</p>
       <p>Top 5 customers last 3 months</p>
       <p>Top 10 selling books last 3 months</p>
       <hr>
+      -->
       <h3 class="head">Categories</h3>
       <p (click)="getCategory('Science')">Science</p>
       <p (click)="getCategory('Art')">Art</p>

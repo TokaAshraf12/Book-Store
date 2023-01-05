@@ -12,9 +12,11 @@ import java.util.List;
 public interface CheckoutRepository extends JpaRepository<Checkout, CompositeKey> {
 
     @Query(value =
-            "SELECT u.customer_id " +
+            "SELECT u.customer_id, sum(u.quantity) total" +
                     "FROM checkout u " +
-                    "WHERE u.date_of_purchase >= DATE_ADD(NOW(),INTERVAL-30 DAY)",
+                    "WHERE u.date_of_purchase >= DATE_ADD(NOW(),INTERVAL -90 DAY) " +
+                    "GROUP BY u.customer " +
+                    "ORDER BY total DESC",
             nativeQuery = true
     )
     List<Long> getTop5CustomersInLast3Months();

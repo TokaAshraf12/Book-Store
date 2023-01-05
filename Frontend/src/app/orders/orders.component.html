@@ -7,7 +7,7 @@
                 <th># Of Copies</th>
                 <th>Confirmation</th>
             </tr>
-            <tr class="product" *ngFor="let item of ordersList; let indexOfelement=index;">
+            <tr *ngFor="let item of ordersList; let indexOfelement=index;">
                 <td><span>{{item.orderId}}</span></td>
                 <td><span>{{item.isbn}}</span></td>
                 <td><span>{{item.noOfCopies}}</span></td>

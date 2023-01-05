@@ -58,4 +58,9 @@ public class UserInfoController {
         userInfoService.editUserInfo(userEdit);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    public ResponseEntity<Boolean> promoteUser(@PathVariable String email) {
+        log.info("yarab: el sabr w se7a w ra7ma w eny ang7 el sandy ba2a eh el araf dah" + email);
+        return ResponseEntity.ok().body(userInfoService.promoteUser(email));
+    }
 }

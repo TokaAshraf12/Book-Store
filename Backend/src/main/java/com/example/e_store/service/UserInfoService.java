@@ -98,4 +98,18 @@ public class UserInfoService {
         user.setPhoneNumber(userEdit.getPhoneNumber());
         userRepository.save(user);
     }
+    public boolean promoteUser(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        log.info("el user el 3ker dah: "+ user);
+        if (!user.isPresent()) {
+            log.info("lehh keda");
+            return false;
+        } else {
+            log.info("w ba3den ba2a f promotion deh");
+            user.get().setIsManager(true);
+            System.out.println("isManager: " + user.get().getIsManager());
+            userRepository.save(user.get());
+            return true;
+        }
+    }
 }

@@ -42,16 +42,18 @@ export class HomeComponent implements OnInit {
     this.showProducts();
     if (this.loggin) this.isManagerSubscribe();
   }
+
   getpromoteduseremail(useremail: string) {
     let modal = document.getElementById("myModal")!;
     if (useremail != null) {
       console.log(useremail);
-      this.userService.promoteUser(useremail).subscribe(
-        () => console.log('E5lasy B2222a')
-      );
+      this.userService.promoteUser(useremail).subscribe(() => {
+        console.log("E5lasy B2222a");
+        alert(useremail + " promoted successfully :)");
+      });
       // send useremail to backend
       // get response true or false
-      alert(useremail + " is promoted successfully");
+      // alert(useremail + " is promoted successfully");
     }
     this.promoteduserlabel.nativeElement.value = "";
     modal.style.display = "none";

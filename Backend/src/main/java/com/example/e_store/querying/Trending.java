@@ -28,7 +28,7 @@ public class Trending {
         try {
             // Change The Two Arguments Depending On your SQL
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/e_store", "root", "52369Zz@");
+                    "jdbc:mysql://localhost:3306/e_store", "", "");
             log.info("Username DB: {}", userName);
             log.info("Password DB: {}", password);
             top10Books = connection.prepareStatement(

@@ -23,26 +23,35 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {}
   checked: boolean = false;
-
+  ExpValid: boolean = false;
   checkout() {
     const cartProducts: CheckoutRequest = {
       customer: this.authService.getUserEmail(),
       books: this.cartService.getCheckoutProducts(),
     };
-    this.checkValidation();
-    if (this.validCard) {
-      console.log("Cart Products To Be Checkout => ", cartProducts);
-      this.checkoutService.sendCheckoutProducts(cartProducts).subscribe(() => {
-        console.log("We Checkout, Babe .. HeHe");
-        this.cartService.clearCart();
-        this.checked = true;
-      });
-    } else {
-      let ele = document.getElementById("Number-Valid");
-      if (ele) {
-        ele.style.display = "block";
-        ele.style.color = "red";
-        ele.style.paddingLeft = "180px";
+    var allFilled = this.getInformation();
+    if (allFilled === true) {
+      console.log("ahhhhhh");
+      this.checkValidation();
+      this.validitionExpDate();
+      this.validationCVV();
+
+      if (this.validCard && this.ExpValid) {
+        console.log("Cart Products To Be Checkout => ", cartProducts);
+        this.checkoutService
+          .sendCheckoutProducts(cartProducts)
+          .subscribe(() => {
+            console.log("We Checkout, Babe .. HeHe");
+            this.cartService.clearCart();
+            this.checked = true;
+          });
+      } else if (!this.validCard) {
+        let ele = document.getElementById("Number-Valid");
+        if (ele) {
+          ele.style.display = "block";
+          ele.style.color = "red";
+          ele.style.paddingLeft = "180px";
+        }
       }
     }
   }
@@ -70,12 +79,53 @@ export class CheckoutComponent implements OnInit {
   backHome() {
     this.router.navigateByUrl("home", { state: { logged: true } });
   }
+
   checkValidation() {
     let ele = document.getElementById("Number-Valid");
-    if (ele) ele.style.display = "none";
+    //if (ele) ele.style.display = 'none';
     this.validCard = this.rExp.test(
       (<HTMLInputElement>document.getElementById("ccnum")).value
     );
     console.log(this.validCard);
+  }
+
+  validitionExpDate() {
+    if (
+      Number((<HTMLInputElement>document.getElementById("expyear")).value) <
+      2023
+    ) {
+      console.log("hhhhhhhhhh");
+      let ele = document.getElementById("year-Valid");
+      if (ele) {
+        ele.style.display = "block";
+        ele.style.color = "red";
+        ele.style.paddingLeft = "180px";
+      }
+      this.ExpValid = false;
+    } else {
+      (<HTMLInputElement>document.getElementById("year-Valid")).style.display =
+        "none";
+
+      this.ExpValid = true;
+    }
+  }
+  validationCVV() {
+    if (
+      Number((<HTMLInputElement>document.getElementById("cvv")).value) < 100 ||
+      Number((<HTMLInputElement>document.getElementById("cvv")).value) > 9999
+    ) {
+      let ele = document.getElementById("CVV-Valid");
+      if (ele) {
+        ele.style.display = "block";
+        ele.style.color = "red";
+        ele.style.paddingLeft = "180px";
+      }
+      this.ExpValid = false;
+    } else {
+      (<HTMLInputElement>document.getElementById("CVV-Valid")).style.display =
+        "none";
+
+      this.ExpValid = true;
+    }
   }
 }

@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReportTop5Customers {
-    private Long userId;
-    private String email;
-    private String phoneNumber;
-    private Integer totalPurchase;
+public class ReportTop10Books {
+    private String isbn;
+    private String title;
+    private Integer totalSoldCopies;
 }

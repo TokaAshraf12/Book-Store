@@ -43,24 +43,19 @@ export class HomeComponent implements OnInit {
     if (this.loggin) this.isManagerSubscribe();
   }
   getpromoteduseremail(useremail: string) {
-    let response: boolean = true;
-    var modal = document.getElementById("myModal")!;
+    let modal = document.getElementById("myModal")!;
     if (useremail != null) {
       console.log(useremail);
-      //send useremail to backend
-      //get response true or false
-
-      if (response) {
-        alert(useremail + " is promoted successfully");
-      } else {
-        alert(" Make sure you entered a valid useremail");
-      }
+      // send useremail to backend
+      // get response true or false
+      alert(useremail + " is promoted successfully");
     }
     this.promoteduserlabel.nativeElement.value = "";
     modal.style.display = "none";
   }
+
   promoteuserwindow() {
-    var modal = document.getElementById("myModal")!;
+    let modal = document.getElementById("myModal")!;
     modal.style.display = "block";
 
     window.onclick = function (event) {
@@ -240,28 +235,28 @@ export class HomeComponent implements OnInit {
   */
 
   handleReports() {}
-  
+
   getFileType(event: any) {
     this.fileType = event.target.value;
     console.log(this.fileType);
     console.log(this.reportChoice);
     if (this.reportChoice === "top10") {
       console.log("Top 10");
-      this.reportService.generateReport10(this.fileType).subscribe(
-        () => console.log("Ma4yyyyyyyyy")
-      );
+      this.reportService
+        .generateReport10(this.fileType)
+        .subscribe(() => console.log("Ma4yyyyyyyyy"));
     }
     if (this.reportChoice === "top5") {
       console.log("Top 5");
-      this.reportService.generateReport5(this.fileType).subscribe(
-        () => console.log("Ma4yyyyyyyyy")
-      );
+      this.reportService
+        .generateReport5(this.fileType)
+        .subscribe(() => console.log("Ma4yyyyyyyyy"));
     }
     if (this.reportChoice === "total") {
       console.log("Total Sales");
-      this.reportService.generateReportTotal(this.fileType).subscribe(
-        () => console.log("Ma4yyyyyyyyy")
-      );
+      this.reportService
+        .generateReportTotal(this.fileType)
+        .subscribe(() => console.log("Ma4yyyyyyyyy"));
     }
   }
 

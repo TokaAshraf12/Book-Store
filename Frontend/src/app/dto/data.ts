@@ -129,11 +129,11 @@ export interface PublisherRequest {
   phone: string;
 }
 
-export interface order {
+// Requested Order
+export interface RequestOrder {
   orderId: number;
-  ISBN: string;
-  bookTitle: string;
-  Quantity: number;
+  isbn: string;
+  noOfCopies: number;
 }
 
 // Edit User
@@ -144,3 +144,4 @@ export interface UserEdit {
   password:string;
   phoneNumber:string;
 }
+

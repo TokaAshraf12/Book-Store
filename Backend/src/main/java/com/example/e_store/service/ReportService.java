@@ -3,7 +3,7 @@ package com.example.e_store.service;
 import com.example.e_store.dto.ReportTop10Books;
 import com.example.e_store.dto.ReportTop5Customers;
 import com.example.e_store.dto.ReportTotalSales;
-import com.example.e_store.querying.Query;
+import com.example.e_store.querying.Trending;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -24,17 +24,17 @@ import java.util.Map;
 @Service
 public class ReportService {
 
-    private final Query query;
+    private final Trending trending;
     private final String separator = FileSystems.getDefault().getSeparator();
     private final String path = String.format("src%smain%sresources%sreports/hello", separator, separator, separator);
 
     public ReportService() {
-        this.query = new Query();
+        this.trending = new Trending();
     }
 
     public void reportTop5Customers(String extension) throws SQLException, JRException, FileNotFoundException {
         List<ReportTop5Customers> top5Customers = new ArrayList<>();
-        ResultSet resultSet = query.getTop5Customers();
+        ResultSet resultSet = trending.getTop5Customers();
         while (resultSet.next()) {
             ReportTop5Customers customers = new ReportTop5Customers();
             customers.setUserId(resultSet.getLong("user_id"));
@@ -65,7 +65,7 @@ public class ReportService {
 
     public void reportTop10Selling(String extension) throws FileNotFoundException, JRException, SQLException {
         List<ReportTop10Books> top10Books = new ArrayList<>();
-        ResultSet resultSet = query.getTop10Books();
+        ResultSet resultSet = trending.getTop10Books();
         while (resultSet.next()) {
             ReportTop10Books book = new ReportTop10Books();
             book.setIsbn(resultSet.getString("isbn"));
@@ -94,7 +94,7 @@ public class ReportService {
 
     public void reportTotalSales(String extension) throws FileNotFoundException, JRException, SQLException {
         List<ReportTotalSales> totalSales = new ArrayList<>();
-        ResultSet resultSet = query.getTopSales();
+        ResultSet resultSet = trending.getTopSales();
         while (resultSet.next()) {
             ReportTotalSales book = new ReportTotalSales();
             book.setIsbn(resultSet.getString("isbn"));

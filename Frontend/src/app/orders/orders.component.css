@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 85%;
-    margin-left: 95px;
+    margin: 100px;
   }
   
   #order td, #order th {

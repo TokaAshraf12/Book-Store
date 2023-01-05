@@ -8,7 +8,7 @@ import java.sql.*;
 
 @Slf4j
 @Service
-public class Query {
+public class Trending {
 
     @Value("${spring.datasource.username}")
     String userName;
@@ -20,7 +20,7 @@ public class Query {
     private PreparedStatement top10Books;
     private PreparedStatement topSales;
 
-    public Query() {
+    public Trending() {
         restartTable();
     }
 

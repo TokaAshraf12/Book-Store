@@ -4,19 +4,15 @@
             <tr>
                 <th>Order Id</th>
                 <th>ISBN</th>
-                <th>Book Title</th>
-                <th>Quantity</th>
+                <th># Of Copies</th>
                 <th>Confirmation</th>
             </tr>
             <tr class="product" *ngFor="let item of ordersList; let indexOfelement=index;">
                 <td><span>{{item.orderId}}</span></td>
-                <td><span>{{item.ISBN}}</span></td>
-                <td><span>{{item.bookTitle}}</span></td>
-                <td><span>{{item.Quantity}}</span></td>
-                <td><span><button class="btn" (click)="confirm($event, indexOfelement)">Confirm</button></span></td>
+                <td><span>{{item.isbn}}</span></td>
+                <td><span>{{item.noOfCopies}}</span></td>
+                <td><span><button class="btn" (click)="confirm($event, item.orderId)">Confirm</button></span></td>
             </tr>
-        </table>    
+        </table>
     </div>
-    </body>
-    
-    
+</body>

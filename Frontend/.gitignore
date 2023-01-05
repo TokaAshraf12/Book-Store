@@ -21,6 +21,7 @@ yarn-error.log
 *.sublime-workspace
 .editorconfig
 .angular/
+.vscode
 
 # Visual Studio Code
 .vscode/*

@@ -75,8 +75,8 @@
           <div class="dropdown-content">
             <a href="user/profile">Profile</a>
             <!-- <a (click)="getCustomerPurchasedProducts()">Purchased Products</a> -->
-            <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Products</a>
-            <a *ngIf="isManager" href="user/add-item">Add Product</a>
+            <a *ngIf="isManager" (click)="getManagerOwnerProducts()">Owned Books</a>
+            <a *ngIf="isManager" href="user/add-item">Add Book</a>
             <a *ngIf="isManager" href="user/add-publisher">Add Publisher</a>
             <a *ngIf="isManager" href="user/view-publishers">View Publishers</a>
             <a *ngIf="isManager" #promotion (click)="promoteuserwindow()">Promote User</a>
@@ -122,7 +122,7 @@
       <label for="promoteduser" style="color:#9b6a01c5 ;  text-shadow: 0 0 3px #faf7f7, 0 0 5px #d5caca; 
       font-size: x-large; font-weight: bold;">Please enter user's email you want to promote :</label> <br>
       <input class="promotinput" type="text" #promoteduser name="promoteduser" placeholder="example@gmail.com">
-      <br><br><br>
+      <br><br>
       <button (click)="getpromoteduseremail(promoteduser.value)" class="btn promotebtn">ok</button>
     </div>
   </div>

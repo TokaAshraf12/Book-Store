@@ -91,12 +91,14 @@ public class UserInfoService {
     */
 
     public void editUserInfo(UserEdit userEdit) {
-        User user = getCurrentUser(userEdit.getEmail());
-        user.setFirstName(userEdit.getFirstName());
-        user.setLastName(userEdit.getLastName());
-        user.setPassword(passwordEncoder.encode(userEdit.getPassword()));
-        user.setPhoneNumber(userEdit.getPhoneNumber());
-        userRepository.save(user);
+        Optional<User> user = userRepository.findByEmail(userEdit.getEmail());
+        if (!user.isPresent()) return;
+        User userToEdit = user.get();
+        userToEdit.setFirstName(userEdit.getFirstName());
+        userToEdit.setLastName(userEdit.getLastName());
+        userToEdit.setPassword(passwordEncoder.encode(userEdit.getPassword()));
+        userToEdit.setPhoneNumber(userEdit.getPhoneNumber());
+        userRepository.save(userToEdit);
     }
 
     public void promoteUser(String email) {
